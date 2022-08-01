@@ -16,3 +16,7 @@ Create branch upstream
 
 To grab new changes from dev branch
 ``git pull origin development``
+<<<<<<< HEAD
+
+=======
+>>>>>>> 45c89a6897a4817640c7a9f3855ac2a1044cd45f
