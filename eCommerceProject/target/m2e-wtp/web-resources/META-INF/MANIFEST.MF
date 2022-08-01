@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: lesliecruz
 Build-Jdk: 11.0.15.1
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-Built-By: Robert Harrison
-Build-Jdk: 11.0.15.1
-Created-By: Maven Integration for Eclipse
-
->>>>>>> 52a38e12bb72ffb1bcdbc2877fe1f04dd274cfff
