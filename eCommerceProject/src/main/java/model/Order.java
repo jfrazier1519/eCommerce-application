@@ -1,6 +1,6 @@
 package model;
 
-public class Orders {
+public class Order {
 
 		int order_id;
 		int customer_id;
@@ -11,11 +11,11 @@ public class Orders {
 		int quantity;
 		int total;
 		
-		public Orders() {
+		public Order() {
 			// TODO Auto-generated constructor stub
 		}
 
-		public Orders(int order_id, int customer_id, int payment_id, int order_date, int product_id, int price,
+		public Order(int order_id, int customer_id, int payment_id, int order_date, int product_id, int price,
 				int quantity, int total) {
 			super();
 			this.order_id = order_id;
@@ -94,7 +94,7 @@ public class Orders {
 
 		@Override
 		public String toString() {
-			return "\nOrders [order_id=" + order_id + ", customer_id=" + customer_id + ", payment_id=" + payment_id
+			return "\nOrder [order_id=" + order_id + ", customer_id=" + customer_id + ", payment_id=" + payment_id
 					+ ", order_date=" + order_date + ", product_id=" + product_id + ", price=" + price + ", quantity="
 					+ quantity + ", total=" + total + "]";
 		}
