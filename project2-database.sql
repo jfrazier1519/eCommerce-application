@@ -1,13 +1,5 @@
-
-CREATE TABLE accounts(
-	account_id SERIAL PRIMARY KEY
-	, username VARCHAR(50) NOT NULL
-	, password VARCHAR(50) NOT NULL
-);
-
 CREATE TABLE customers (
 	customer_id SERIAL PRIMARY KEY,
-	account_id INTEGER,
 	first_name VARCHAR(50) NOT NULL,
 	last_name VARCHAR(50) NOT NULL,
 	address VARCHAR(50) NOT NULL,
@@ -18,8 +10,7 @@ CREATE TABLE customers (
 	email VARCHAR(50) NOT NULL,
 	credit_card VARCHAR(50) NOT NULL,
 	credit_card_type VARCHAR(50) NOT NULL,
-	card_expirary_date VARCHAR(50) NOT NULL,
-	FOREIGN KEY (account_id) REFERENCES accounts (account_id)
+	card_expirary_date VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE category (
@@ -61,27 +52,12 @@ CREATE TABLE orders (
 	FOREIGN KEY (product_id) REFERENCES products (product_id)
 );
 
-CREATE TABLE shopping_cart (
-	cart_id SERIAL PRIMARY KEY
-	, customer_id INTEGER NOT NULL
-	, prduct_id INTEGER NOT NULL
-	, price NUMERIC NOT NULL
-	, quantity NUMERIC NOT NULL
-	, total NUMERIC NOT NULL
-	, FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
-	, FOREIGN KEY (product_id) REFERENCES products (product_id)
-	, FOREIGN KEY (price) REFERENCES products (product_id)
-);
-
-DROP TABLE accounts;
 DROP TABLE orders;
 DROP TABLE customers;
 DROP TABLE products;
 DROP TABLE payment;
-DROP TABLE category;
 
 
-SELECT * FROM accounts;
 
 SELECT * FROM customers;
 
@@ -94,9 +70,7 @@ SELECT * FROM payment;
 SELECT * FROM orders;
 
 
-INSERT INTO accounts VALUES (1, 'username', 'password');
-
-INSERT INTO customers VALUES (1, 1, 'josh', 'frazier', '123 wallaby way', 'city', 12345, 'usa', 2401239567, 'myemail@gmail.com', 5000299000000000, 'visa', 0721);
+INSERT INTO customers VALUES (1, 'josh', 'jr', '123 wallaby way', 'city', 12345, 'usa', 2401239567, 'myemail@gmail.com', 5000299000000000, 'visa', 0721);
 
 --SELECT FORMAT (0234567890, '000-000-0000');
 
@@ -115,53 +89,5 @@ DELETE FROM payment WHERE payment_id = 1;
 
 INSERT INTO orders VALUES (1, 1, 1, '07/27/2022', 1, 5000.00, 1, 5100.25);
 DELETE FROM orders WHERE order_id = 1;
-
-
-
-
------------------------------------ACCOUNT METHODS-----------------------------
-
-SELECT * FROM accounts;
-
-SELECT customers.customer_id, accounts.username, accounts.password, customers.first_name, customers.last_name 
-FROM accounts
-INNER JOIN customers
-ON accounts.account_id = customers.account_id
-WHERE accounts.username = username AND accounts.PASSWORD = PASSWORD;
- 
-
-
-
-
------------------------------------CATEGORY METHODS-----------------------------
-
-
-
-
-
-
-
------------------------------------CUSTOMER METHODS-----------------------------
-
-
-
-
-
------------------------------------ORDER METHODS-----------------------------
-
-
-
-
-
-
------------------------------------PAYMENT METHODS-----------------------------
-
-
-
-
-
------------------------------------PRODUCT METHODS-----------------------------
-
-
 
 
