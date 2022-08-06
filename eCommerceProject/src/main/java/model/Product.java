@@ -14,17 +14,28 @@ public class Product {
 			// TODO Auto-generated constructor stub
 		}
 
-		public Product(int product_id, String product_name, int category_id, int quantity, int price,
+//		public Product(int product_id, String product_name, int category_id, int quantity, int price,
+//				String product_desc, String product_review) {
+//			super();
+//			this.product_id = product_id;
+//			this.product_name = product_name;
+//			this.category_id = category_id;
+//			this.quantity = quantity;
+//			this.price = price;
+//			this.product_desc = product_desc;
+//			this.product_review = product_review;
+//		}
+		
+		public Product(String product_name, int quantity, int price,
 				String product_desc, String product_review) {
 			super();
-			this.product_id = product_id;
 			this.product_name = product_name;
-			this.category_id = category_id;
 			this.quantity = quantity;
 			this.price = price;
 			this.product_desc = product_desc;
 			this.product_review = product_review;
 		}
+		
 
 		public int getProduct_id() {
 			return product_id;
@@ -84,8 +95,7 @@ public class Product {
 
 		@Override
 		public String toString() {
-			return "\nProduct [product_id=" + product_id + ", product_name=" + product_name + ", category_id="
-					+ category_id + ", quantity=" + quantity + ", price=" + price + ", product_desc=" + product_desc
+			return "\nProduct [product_name=" + product_name + ", quantity=" + quantity + ", price=" + price + ", product_desc=" + product_desc
 					+ ", product_review=" + product_review + "]";
 		}
 		

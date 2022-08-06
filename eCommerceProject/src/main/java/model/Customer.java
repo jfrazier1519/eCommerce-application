@@ -9,7 +9,7 @@ public class Customer {
 	String city;
 	int postal_code;
 	String country;
-	int tel_no;
+	long tel_no;
 	String email;
 	String credit_card;
 	String credit_card_type;
@@ -41,7 +41,19 @@ public class Customer {
 		this.card_expirary_date = card_expirary_date;
 	}
 
-
+	public Customer(int customer_id, String first_name, String last_name, String address, String city, int postal_code,
+			String country, long tel_no, String email) {
+		super();
+		this.customer_id = customer_id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.address = address;
+		this.city = city;
+		this.postal_code = postal_code;
+		this.country = country;
+		this.tel_no = tel_no;
+		this.email = email;
+	}
 
 	public int getCustomer_id() {
 		return customer_id;
@@ -127,13 +139,13 @@ public class Customer {
 
 
 
-	public int getTel_no() {
+	public long getTel_no() {
 		return tel_no;
 	}
 
 
 
-	public void setTel_no(int tel_no) {
+	public void setTel_no(long tel_no) {
 		this.tel_no = tel_no;
 	}
 
@@ -191,8 +203,7 @@ public class Customer {
 	public String toString() {
 		return "\nCustomer [customer_id=" + customer_id + ", first_name=" + first_name + ", last_name=" + last_name
 				+ ", address=" + address + ", city=" + city + ", postal_code=" + postal_code + ", country=" + country
-				+ ", tel_no=" + tel_no + ", email=" + email + ", credit_card=" + credit_card + ", credit_card_type="
-				+ credit_card_type + ", card_expirary_date=" + card_expirary_date + "]";
+				+ ", tel_no=" + tel_no + ", email=" + email + "]";
 	}
 	
 	
