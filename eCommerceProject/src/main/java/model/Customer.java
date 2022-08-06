@@ -1,6 +1,6 @@
 package model;
 
-public class Customers {
+public class Customer {
 	
 	int customer_id;
 	String first_name;
@@ -17,13 +17,13 @@ public class Customers {
 	
 	
 	
-	public Customers() {
+	public Customer() {
 		// TODO Auto-generated constructor stub
 	}
 
 
 
-	public Customers(int customer_id, String first_name, String last_name, String address, String city, int postal_code,
+	public Customer(int customer_id, String first_name, String last_name, String address, String city, int postal_code,
 			String country, int tel_no, String email, String credit_card, String credit_card_type,
 			String card_expirary_date) {
 		super();
@@ -189,7 +189,7 @@ public class Customers {
 
 	@Override
 	public String toString() {
-		return "\nCustomers [customer_id=" + customer_id + ", first_name=" + first_name + ", last_name=" + last_name
+		return "\nCustomer [customer_id=" + customer_id + ", first_name=" + first_name + ", last_name=" + last_name
 				+ ", address=" + address + ", city=" + city + ", postal_code=" + postal_code + ", country=" + country
 				+ ", tel_no=" + tel_no + ", email=" + email + ", credit_card=" + credit_card + ", credit_card_type="
 				+ credit_card_type + ", card_expirary_date=" + card_expirary_date + "]";
