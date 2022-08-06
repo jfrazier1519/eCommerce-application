@@ -61,6 +61,18 @@ CREATE TABLE orders (
 	FOREIGN KEY (product_id) REFERENCES products (product_id)
 );
 
+CREATE TABLE shopping_cart (
+	cart_id SERIAL PRIMARY KEY
+	, customer_id INTEGER NOT NULL
+	, prduct_id INTEGER NOT NULL
+	, price NUMERIC NOT NULL
+	, quantity NUMERIC NOT NULL
+	, total NUMERIC NOT NULL
+	, FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
+	, FOREIGN KEY (product_id) REFERENCES products (product_id)
+	, FOREIGN KEY (price) REFERENCES products (product_id)
+);
+
 DROP TABLE accounts;
 DROP TABLE orders;
 DROP TABLE customers;
