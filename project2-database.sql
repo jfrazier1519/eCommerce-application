@@ -33,7 +33,7 @@ CREATE TABLE payment (
 	payment_id SERIAL PRIMARY KEY,
 	payment_type VARCHAR(50) NOT NULL,
 	payment_status NUMERIC NOT NULL,
-	payment_date INTEGER NOT NULL,
+	payment_date DATE DEFAULT CURRENT_TIMESTAMP,
 	allowed VARCHAR(50) NOT NULL
 );
 
@@ -42,7 +42,7 @@ CREATE TABLE orders (
 	order_id SERIAL PRIMARY KEY,
 	customer_id INTEGER NOT NULL,
 	payment_id INTEGER NOT NULL,
-	order_date INTEGER NOT NULL,
+	order_date DATE DEFAULT CURRENT_TIMESTAMP, --STILL DOESN'T WORK?
 	product_id INTEGER NOT NULL,
 	price NUMERIC NOT NULL,
 	quantity NUMERIC NOT NULL,
@@ -83,11 +83,11 @@ DELETE FROM category WHERE category_id = 1;
 
 INSERT INTO products VALUES (1, 'thor hammer', 1, 4, 5000.00, 'special hammer', 'very heavy');
 
-INSERT INTO payment VALUES (1, 'credit card', 1, 20220728, 1);
+INSERT INTO payment VALUES (1, 'credit card', 1, '07/28/2022', 1);
 DELETE FROM payment WHERE payment_id = 1;
 
 
-INSERT INTO orders VALUES (1, 1, 1, 20220727, 1, 5000.00, 1, 5100.25);
+INSERT INTO orders VALUES (1, 1, 1, '07/27/2022', 1, 5000.00, 1, 5100.25);
 DELETE FROM orders WHERE order_id = 1;
 
 
