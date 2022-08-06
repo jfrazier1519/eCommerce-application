@@ -1,6 +1,6 @@
 package model;
 
-public class Products {
+public class Product {
 
 		int product_id;
 		String product_name;
@@ -10,11 +10,11 @@ public class Products {
 		String product_desc;
 		String product_review;
 		
-		public Products() {
+		public Product() {
 			// TODO Auto-generated constructor stub
 		}
 
-		public Products(int product_id, String product_name, int category_id, int quantity, int price,
+		public Product(int product_id, String product_name, int category_id, int quantity, int price,
 				String product_desc, String product_review) {
 			super();
 			this.product_id = product_id;
@@ -84,7 +84,7 @@ public class Products {
 
 		@Override
 		public String toString() {
-			return "\nProducts [product_id=" + product_id + ", product_name=" + product_name + ", category_id="
+			return "\nProduct [product_id=" + product_id + ", product_name=" + product_name + ", category_id="
 					+ category_id + ", quantity=" + quantity + ", price=" + price + ", product_desc=" + product_desc
 					+ ", product_review=" + product_review + "]";
 		}
