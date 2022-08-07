@@ -64,7 +64,7 @@ CREATE TABLE orders (
 CREATE TABLE shopping_cart (
 	cart_id SERIAL PRIMARY KEY
 	, customer_id INTEGER NOT NULL
-	, prduct_id INTEGER NOT NULL
+	, product_id INTEGER NOT NULL
 	, price NUMERIC NOT NULL
 	, quantity NUMERIC NOT NULL
 	, total NUMERIC NOT NULL
