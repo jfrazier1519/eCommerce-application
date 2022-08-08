@@ -10,10 +10,16 @@ public class Account {
 	
 
 	public Account() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
-
+	public Account(int Id, int customerId, String username, String password) {
+		this.Id = Id;
+		super();
+		
+	
+	
+	}
 	public Account(int id, int customerId, String username, String password, String first_name, String last_name) {
 		super();
 		Id = id;

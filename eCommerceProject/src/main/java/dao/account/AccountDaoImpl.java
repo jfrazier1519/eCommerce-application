@@ -19,7 +19,9 @@ public class AccountDaoImpl implements AccountDao {
 	}
 	
 	
-	
+	/**
+	 * DAO READ method that takes an input of username and password to find an existing customer in the DB. 
+	 */
 	@Override
 	public Account selectByUser(String user, String pass) {
 		Account myAccount = new Account();
@@ -49,6 +51,20 @@ public class AccountDaoImpl implements AccountDao {
 			e.printStackTrace();
 		}
 		return myAccount;
+	}
+
+
+	@Override
+	public boolean makeNewAccount(String username, String password, String first_name, String last_name) {
+		try(Connection conn = ConnectionFactory.getConnection()) {
+			String ourSQLStatement = "";
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		
+		return false;
 	}
 
 }

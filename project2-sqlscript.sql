@@ -30,6 +30,8 @@ CREATE TABLE category (
 
 
 
+
+
 CREATE TABLE products (
 	product_id SERIAL PRIMARY KEY,
 	product_name VARCHAR(50) NOT NULL,
@@ -63,22 +65,20 @@ CREATE TABLE orders (
 	price NUMERIC NOT NULL,
 	quantity NUMERIC NOT NULL,
 	total NUMERIC NOT NULL,
+	order_status_id integer, 
 	FOREIGN KEY (customer_id) REFERENCES customers (customer_id),
 	FOREIGN KEY (payment_id) REFERENCES payment (payment_id),
-	FOREIGN KEY (product_id) REFERENCES products (product_id)
+	FOREIGN KEY (product_id) REFERENCES products (product_id),
+	FOREIGN KEY (order_status_id) REFERENCES order_status (order_status_id)
 );
 
-CREATE TABLE shopping_cart (
-	cart_id SERIAL PRIMARY KEY
-	, customer_id INTEGER NOT NULL
-	, product_id INTEGER NOT NULL
-	, price NUMERIC NOT NULL
-	, quantity NUMERIC NOT NULL
-	, total NUMERIC NOT NULL
-	, FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
-	, FOREIGN KEY (product_id) REFERENCES products (product_id)
-	, FOREIGN KEY (price) REFERENCES products (product_id)
+CREATE TABLE order_status(
+	order_status_id SERIAL PRIMARY KEY,
+	order_status VARCHAR NOT NULL
 );
+
+
+
 
 DROP TABLE accounts;
 DROP TABLE orders;
@@ -100,6 +100,7 @@ SELECT * FROM payment;
 
 SELECT * FROM orders;
 
+SELECT * FROM order_status;
 
 INSERT INTO accounts VALUES (1, 'username', 'password');
 

@@ -1,21 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: Detail
 Build-Jdk: 11.0.15.1
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-Built-By: lesliecruz
-Build-Jdk: 11.0.15.1
-Created-By: Maven Integration for Eclipse
-
->>>>>>> eddc3f62afefc451229271c5f4b82ec606130fd8
-=======
-Manifest-Version: 1.0
-Built-By: joshu
-Build-Jdk: 11.0.15.1
-Created-By: Maven Integration for Eclipse
-
->>>>>>> 3c4639b1132cef65ffbe5fe4ef2783bd88c0134e
