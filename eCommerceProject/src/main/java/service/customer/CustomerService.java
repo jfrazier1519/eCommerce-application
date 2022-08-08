@@ -5,7 +5,7 @@ import model.Customer;
 public interface CustomerService {
 
 	
-	public Customer getCustomerInfo(int id);
+	public Customer getCustomerInfo(int customerId);
 	
 	public boolean updateProfilePage(Customer customer);
 }
