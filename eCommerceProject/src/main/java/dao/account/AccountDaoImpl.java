@@ -19,7 +19,9 @@ public class AccountDaoImpl implements AccountDao {
 	}
 	
 	
-	
+	/**
+	 * DAO READ method that takes an input of username and password to find an existing customer in the DB. 
+	 */
 	@Override
 	public Account selectByUser(String user, String pass) {
 		Account myAccount = new Account();

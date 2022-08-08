@@ -16,7 +16,14 @@ import service.customer.CustomerServiceImpl;
 
 public class CustomerController {
 	
-	
+	/**
+	 * A method that checks to see if an account exists inside of the current session (logged in)
+	 * If it does, retrieve the customer information and send to user.
+	 * 	
+	 * @param req
+	 * @param resp
+	 * @throws IOException
+	 */
 	public static void viewProfilePage(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
 		CustomerService myServ = new CustomerServiceImpl();
@@ -34,7 +41,15 @@ public class CustomerController {
 			printer.println("No one is logged in");
 		}
 	}
-
+	
+	/**
+	 * A method that checks to see if an account exists inside of the current session (logged in)
+	 * If it does, receive a JSON object from the user and send to DB.
+	 * 
+	 * @param req
+	 * @param resp
+	 * @throws IOException
+	 */
 	public static void updateProfilePage(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
 		CustomerService myServ = new CustomerServiceImpl();
