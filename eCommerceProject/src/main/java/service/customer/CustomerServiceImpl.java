@@ -13,8 +13,8 @@ public class CustomerServiceImpl implements CustomerService {
 	 * It will retrieve info by the customer id.
 	 */
 	@Override
-	public Customer getCustomerInfo(int id) {
-		return myDao.getCustomerById(id);
+	public Customer getCustomerInfo(int customerId) {
+		return myDao.getCustomerById(customerId);
 	}
 
 	/*

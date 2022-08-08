@@ -1,7 +1,7 @@
 package model;
 
 public class Account {
-	int Id;
+	int accountId;
 	int customerId;
 	String username;
 	String password;
@@ -14,9 +14,9 @@ public class Account {
 	}
 
 
-	public Account(int id, int customerId, String username, String password, String first_name, String last_name) {
+	public Account(int accountId, int customerId, String username, String password, String first_name, String last_name) {
 		super();
-		Id = id;
+		this.accountId = accountId;
 		this.customerId = customerId;
 		this.username = username;
 		this.password = password;
@@ -33,13 +33,13 @@ public class Account {
 		this.last_name = last_name;
 	}
 
-	public int getId() {
-		return Id;
+	public int getAccountId() {
+		return accountId;
 	}
 
 
-	public void setId(int id) {
-		Id = id;
+	public void setAccountId(int accountId) {
+		this.accountId = accountId;
 	}
 
 
