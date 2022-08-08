@@ -27,6 +27,9 @@ CREATE TABLE category (
 	category_name VARCHAR(50) NOT NULL
 );
 
+
+
+
 CREATE TABLE products (
 	product_id SERIAL PRIMARY KEY,
 	product_name VARCHAR(50) NOT NULL,
@@ -37,6 +40,10 @@ CREATE TABLE products (
 	product_review VARCHAR(250) NOT NULL,
 	FOREIGN KEY (category_id) REFERENCES category (category_id)
 );
+
+
+
+
 
 CREATE TABLE payment (
 	payment_id SERIAL PRIMARY KEY,
@@ -64,7 +71,7 @@ CREATE TABLE orders (
 CREATE TABLE shopping_cart (
 	cart_id SERIAL PRIMARY KEY
 	, customer_id INTEGER NOT NULL
-	, prduct_id INTEGER NOT NULL
+	, product_id INTEGER NOT NULL
 	, price NUMERIC NOT NULL
 	, quantity NUMERIC NOT NULL
 	, total NUMERIC NOT NULL
@@ -138,10 +145,16 @@ WHERE accounts.username = username AND accounts.PASSWORD = PASSWORD;
 
 
 
-
-
-
 -----------------------------------CUSTOMER METHODS-----------------------------
+
+SELECT customer_id, first_name, last_name, address, city, postal_code, country, tel_no, email
+FROM customers
+WHERE customer_id = 1;
+
+UPDATE customers 
+SET customer_id = 1, first_name = 'josh', last_name = 'frazier', address = '123 wallaby way', city = 'Austin', postal_code = 75793, country = 'usa', tel_no = 9031280534, email = 'myemail@gmail.com'
+WHERE customer_id = 1;
+
 
 
 
@@ -162,6 +175,22 @@ WHERE accounts.username = username AND accounts.PASSWORD = PASSWORD;
 
 -----------------------------------PRODUCT METHODS-----------------------------
 
+SELECT * FROM products;
+SELECT * FROM category;
+INSERT INTO products VALUES (1, 'thor hammer', 1, 3, 5000.00, 'special hammer we managed to replicate', 'very heavy');
+INSERT INTO products VALUES (2, 'infinity stones', 2, 6, 2000000.00, 'yes, its those stones', 'are these even real?');
+INSERT INTO products VALUES (3, 'grappling hook', 3, 50, 100.00, 'adaptable fit to any wrist type', 'fits like a glove');
+
+--INSERT INTO category VALUES(4, 'armor');
+
+SELECT products.product_name, products.quantity, products.price, products.product_desc, products.product_review
+FROM products 
+INNER JOIN category
+ON products.category_id  = category.category_id;
 
 
-
+SELECT products.product_name, products.quantity, products.price, products.product_desc, products.product_review
+FROM products 
+INNER JOIN category
+ON products.category_id  = category.category_id 
+WHERE category_name = 'weapons';
