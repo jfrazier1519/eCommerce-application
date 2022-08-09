@@ -9,8 +9,8 @@ window.onload = function () {
 
 
 
-function loginForm(TheEvent) {
-    TheEvent.preventDefault();
+function loginForm(theEvent) {
+    theEvent.preventDefault();
     login();
 }
 
@@ -26,6 +26,7 @@ function login() {
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
+
         console.log("in ready state function");
 
         console.log(xhttp.readyState);
@@ -33,17 +34,16 @@ function login() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             console.log("readyState is 4! AND ...status is 200 OK");
 
+            console.log("checkpoint 2");
+            console.log("checkpoint 1", xhttp.responseText);
+
             // let accountObj = JSON.parse(xhttp.responseText);
             // console.log(accountObj);
         }
 
-
-
     }
 
-
-
-    xhttp.open('POST', `https://localhost:9002/eCommerceProject/login`, true);
+    xhttp.open('POST', `http://localhost:9002/eCommerceProject/login`);
 
     
     let myLoginObject = {
