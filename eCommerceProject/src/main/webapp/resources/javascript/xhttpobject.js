@@ -47,8 +47,8 @@ function login() {
 
     
     let myLoginObject = {
-        "Username": inputUsername,
-        "Password": inputPassword
+        "username": inputUsername,
+        "password": inputPassword
     };
 
     xhttp.setRequestHeader("content-type", "application/json");

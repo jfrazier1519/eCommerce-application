@@ -7,7 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import model.Account;
+import model.Customer;
 import service.account.AccountService;
 import service.account.AccountServiceImpl;
 
@@ -17,8 +20,14 @@ public class LoginController {
 		
 		AccountService myServ = new AccountServiceImpl();
 		
-		String inputUsername = req.getParameter("Username");
-		String inputPassword = req.getParameter("Password");
+//		String inputUsername = req.getParameter("Username");
+//		String inputPassword = req.getParameter("Password");
+		
+		ObjectMapper mapper = new ObjectMapper();
+		Account ajaxObj = mapper.readValue(req.getInputStream(), Account.class);
+		
+		String inputUsername = ajaxObj.getUsername();
+		String inputPassword = ajaxObj.getPassword();
 		
 		PrintWriter printer = resp.getWriter();
 		
