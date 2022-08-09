@@ -38,6 +38,9 @@ public class LoginController {
 			HttpSession accountSession = req.getSession();
 			accountSession.setAttribute("currentAccount", myAccount);
 			
+			//I NEED TO REDIRECT TO MAIN PAGE ONCE LOGIN WORKS
+//			resp.sendRedirect();
+			
 		} else {
 			printer.println("Failed to login. User and Pass do not match. Try Again.");
 		}
