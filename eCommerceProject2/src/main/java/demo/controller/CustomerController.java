@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +20,7 @@ import demo.service.customer.CustomerService;
 import demo.service.customer.CustomerServiceImpl;
 
 @RestController
+@RequestMapping("/customer")
 public class CustomerController {
 	
 	/**
@@ -33,7 +36,7 @@ public class CustomerController {
 
 		CustomerService myServ = new CustomerServiceImpl();
 		HttpSession accountSession = req.getSession();
-		Account currentAccount = (Account) accountSession.getAttribute("currentAccount");
+		Account currentAccount = (Account) accountSession.getAttribute("currentUser");
 		
 		
 		PrintWriter printer = resp.getWriter();
