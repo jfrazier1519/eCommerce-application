@@ -1,7 +1,6 @@
 package demo.dao;
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -12,14 +11,14 @@ public class ConnectionFactory {
 //		private static String username="datachan";
 //		private static String password="p4ssw0rd";
 
-	static { // (this would normally go into your dao layer)
-		try {
-			Class.forName("org.postgresql.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			System.out.println("Static block has failed me");
-		}
-	}
+//	static { // (this would normally go into your dao layer)
+//		try {
+//			Class.forName("org.postgresql.Driver");
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//			System.out.println("Static block has failed me");
+//		}
+//	}
 
 //	public static String url = "jdbc:postgresql://" + System.getenv("TRAINING_DB_ENDPOINT") + "/"
 //			+ System.getenv("TRAINING_DB_DATABASENAME");

@@ -19,7 +19,7 @@ public class ProductController {
 
 		ProductService myServ = new ProductServiceImpl();
 		HttpSession accountSession = req.getSession();
-		Account currentAccount = (Account) accountSession.getAttribute("currentAccount");
+		Account currentAccount = (Account) accountSession.getAttribute("currentUser");
 
 		PrintWriter printer = resp.getWriter();
 		if (currentAccount != null) {
@@ -35,7 +35,7 @@ public class ProductController {
 
 		ProductService myServ = new ProductServiceImpl();
 		HttpSession accountSession = req.getSession();
-		Account currentAccount = (Account) accountSession.getAttribute("currentAccount");
+		Account currentAccount = (Account) accountSession.getAttribute("currentUser");
 
 		String inputCategory = req.getParameter("Category");
 		
