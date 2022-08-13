@@ -7,9 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,22 +30,22 @@ public class CustomerController {
 	 * @param resp
 	 * @throws IOException
 	 */
-	@GetMapping(value="/viewprofilepage")
-	public static void viewProfilePage(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	@PostMapping(value="/viewprofilepage")
+	public Customer viewProfilePage(HttpSession session, HttpServletResponse resp) throws IOException {
 
 		CustomerService myServ = new CustomerServiceImpl();
-		HttpSession accountSession = req.getSession();
-		Account currentAccount = (Account) accountSession.getAttribute("currentUser");
+		
+		Account currentUser = (Account)session.getAttribute("currentUser");
 		
 		
-		PrintWriter printer = resp.getWriter();
-		if (currentAccount != null) {
-			
-			Customer myCustomer = myServ.getCustomerInfo(currentAccount.getCustomerId());
-
-			printer.println(myCustomer);
+		if (currentUser!= null) {
+			Customer myCustomer = myServ.getCustomerInfo(currentUser.getCustomerId());
+			return(myCustomer);
 		} else {
+			PrintWriter printer = resp.getWriter();
+			
 			printer.println("No one is logged in");
+			return null;
 		}
 	}
 	
@@ -58,6 +57,7 @@ public class CustomerController {
 	 * @param resp
 	 * @throws IOException
 	 */
+	@PostMapping(value="/updateprofilepage")
 	public static void updateProfilePage(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
 		CustomerService myServ = new CustomerServiceImpl();

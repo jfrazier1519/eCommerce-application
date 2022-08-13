@@ -8,13 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import demo.model.Account;
 import demo.model.Product;
 import demo.service.product.ProductService;
 import demo.service.product.ProductServiceImpl;
 
+@RestController
+@RequestMapping("/products")
 public class ProductController {
 
+	
 	public static void viewAllProducts(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
 		ProductService myServ = new ProductServiceImpl();
