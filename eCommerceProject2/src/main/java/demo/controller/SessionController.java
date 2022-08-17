@@ -22,6 +22,7 @@ public class SessionController {
 		
 		String inputUsername = req.getParameter("username");
 		String inputPassword = req.getParameter("password");
+	
 		
 		
 //		String inputUsername = userAccount.getUsername();
