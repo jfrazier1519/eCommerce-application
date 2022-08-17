@@ -5,6 +5,7 @@ CREATE TABLE accounts(
 	, password VARCHAR(50) NOT NULL
 );
 
+
 CREATE TABLE customers (
 	customer_id SERIAL PRIMARY KEY,
 	account_id INTEGER,
@@ -86,7 +87,7 @@ DROP TABLE customers;
 DROP TABLE products;
 DROP TABLE payment;
 DROP TABLE category;
-
+DROP TABLE shopping_cart ;
 
 SELECT * FROM accounts;
 
@@ -118,6 +119,10 @@ DELETE FROM customers WHERE customer_id = 1;
 
 
 INSERT INTO category VALUES (1, 'weapons');
+INSERT INTO category VALUES (2, 'artifacts');
+INSERT INTO category VALUES (3, 'gadgets');
+INSERT INTO category VALUES (4, 'armor');
+
 DELETE FROM category WHERE category_id = 1;
 
 
@@ -142,7 +147,14 @@ SELECT customers.customer_id, accounts.username, accounts.password, customers.fi
 FROM accounts
 INNER JOIN customers
 ON accounts.account_id = customers.account_id
+<<<<<<< HEAD
 WHERE accounts.username = username AND accounts.PASSWORD = PASSWORD; 
+=======
+WHERE accounts.username = 'username' AND accounts.PASSWORD = 'password';
+
+SELECT * FROM accounts;
+SELECT * FROM customers;
+>>>>>>> b7afdf39475fe54ea20e2d475d99340ba2c63946
  
 INSERT INTO accounts VALUES (DEFAULT, 'username', 'password');
 
