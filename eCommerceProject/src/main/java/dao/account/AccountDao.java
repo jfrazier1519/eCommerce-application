@@ -8,7 +8,7 @@ public interface AccountDao {
 		public Account selectByUser(String user, String pass);
 		
 		//can create a new account
-		public boolean makeNewAccount(String username, String password, String first_name, String last_name);
+		public boolean makeNewAccount(int accountId,String username, String password);
 		
 		
 		

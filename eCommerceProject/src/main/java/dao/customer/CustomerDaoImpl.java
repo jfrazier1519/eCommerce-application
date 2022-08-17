@@ -23,7 +23,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	 * Will not show card information in profile. Instead that should be viewed and altered at checkout.
 	 */
 	@Override
-	public Customer getCustomerById(int id) {
+	public Customer getCustomerById(int customerId) {
 		Customer myCustomer = null;
 
 		try (Connection conn = ConnectionFactory.getConnection()) {
@@ -32,7 +32,7 @@ public class CustomerDaoImpl implements CustomerDao {
 					+ "FROM customers\r\n" + "WHERE customer_id = ?;";
 
 			PreparedStatement ps = conn.prepareStatement(ourSQLStatement);
-			ps.setInt(1, id);
+			ps.setInt(1, customerId);
 
 			ResultSet resultSet = ps.executeQuery(); // NOTE...this is NOT "executeUpdate" it's "executeQuery"
 

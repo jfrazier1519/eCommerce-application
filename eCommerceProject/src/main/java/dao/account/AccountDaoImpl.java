@@ -54,12 +54,13 @@ public class AccountDaoImpl implements AccountDao {
 	}
 
 
-	@Override
-	public boolean makeNewAccount(String username, String password, String first_name, String last_name) {
+	@Override				//WE LEFT OFF RIGAHT HERE!!!!!!!!!
+	public boolean makeNewAccount(int accountId,String username, String password) {
 		try(Connection conn = ConnectionFactory.getConnection()) {
-			String ourSQLStatement = "";
+			String ourSQLStatement = "INSERT INTO accounts VALUES (DEFAULT,'?','?');";
+	
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 	
