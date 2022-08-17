@@ -3,16 +3,13 @@ package demo.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import demo.model.Account;
 import demo.model.Customer;
@@ -31,22 +28,23 @@ public class CustomerController {
 	 * @param resp
 	 * @throws IOException
 	 */
-	@GetMapping(value="/viewprofilepage")
-	public static void viewProfilePage(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	@PostMapping(value="/viewprofilepage")
+	public Customer viewProfilePage(HttpSession session, HttpServletResponse resp) throws IOException {
 
 		CustomerService myServ = new CustomerServiceImpl();
-		HttpSession accountSession = req.getSession();
-		Account currentAccount = (Account) accountSession.getAttribute("currentUser");
+		
+		Account currentUser = (Account)session.getAttribute("currentUser");
 		
 		
-		PrintWriter printer = resp.getWriter();
-		if (currentAccount != null) {
+		if (currentUser!= null) {
 			
-			Customer myCustomer = myServ.getCustomerInfo(currentAccount.getCustomerId());
-
-			printer.println(myCustomer);
+			Customer myCustomer = myServ.getCustomerInfo(currentUser.getCustomerId());
+			return(myCustomer);
 		} else {
+			PrintWriter printer = resp.getWriter();
+			
 			printer.println("No one is logged in");
+			return null;
 		}
 	}
 	
@@ -58,25 +56,20 @@ public class CustomerController {
 	 * @param resp
 	 * @throws IOException
 	 */
-	public static void updateProfilePage(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	@PostMapping(value="/updateprofilepage")
+	public String updateProfilePage(@RequestBody Customer newProfile, HttpSession session) throws IOException {
 
 		CustomerService myServ = new CustomerServiceImpl();
-		HttpSession accountSession = req.getSession();
-		Account currentAccount = (Account) accountSession.getAttribute("currentAccount");
 
-		String inputCategory = req.getParameter("Category");
+		Account currentUser = (Account)session.getAttribute("currentUser");
 		
-		PrintWriter printer = resp.getWriter();
-		if (currentAccount != null) {
+		if (currentUser != null) {
 			
-			resp.setContentType("application/json");
-			ObjectMapper mapper = new ObjectMapper();
-			Customer newProfile = mapper.readValue(req.getInputStream(), Customer.class);
 			myServ.updateProfilePage(newProfile);
 			
-			printer.println("Profile Page Updated");
+			return("Profile Page Updated");
 		} else {
-			printer.println("No one is logged in");
+			return("No one is logged in");
 		}
 	}
 	
