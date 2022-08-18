@@ -38,7 +38,7 @@ public class CustomerController {
 		
 		if (currentUser!= null) {
 			
-			Customer myCustomer = myServ.getCustomerInfo(currentUser.getCustomerId());
+			Customer myCustomer = myServ.getCustomerInfo(currentUser.getCustomer_id());
 			return(myCustomer);
 		} else {
 			PrintWriter printer = resp.getWriter();
