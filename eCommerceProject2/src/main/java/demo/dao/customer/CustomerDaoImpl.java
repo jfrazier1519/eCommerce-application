@@ -70,7 +70,7 @@ public class CustomerDaoImpl implements CustomerDao {
 					+ "WHERE customer_id = ?;";
 
 			PreparedStatement ps = conn.prepareStatement(ourSQLStatement);
-			ps.setInt(1, customer.getCustomer_id());
+			ps.setInt(1, customer.getId());
 			ps.setString(2, customer.getFirst_name());
 			ps.setString(3, customer.getLast_name());
 			ps.setString(4, customer.getAddress());
@@ -79,7 +79,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(7, customer.getCountry());
 			ps.setLong(8, customer.getTel_no());
 			ps.setString(9, customer.getEmail());
-			ps.setInt(10, customer.getCustomer_id());
+			ps.setInt(10, customer.getId());
 			
 
 			ps.executeUpdate();
