@@ -51,10 +51,11 @@ public class Order {
 	private String orderStatus;
 	
 	@ManyToOne(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
-	@JoinColumn(name="customer_FK")  // Project won't run with this. ManyToOne and Column can't both be here apparently
+	@JoinColumn(name="customer_FK")  
 	@JsonBackReference
 	private Customer myCustomer;
 	
+	// -- TODO Add ManytoMany relationships BOTH WAYS --
 	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
 	@JsonManagedReference
 	private List <Payment> myPayments;
