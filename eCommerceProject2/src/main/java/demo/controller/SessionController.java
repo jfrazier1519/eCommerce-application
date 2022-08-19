@@ -34,13 +34,13 @@ public class SessionController {
 //		String inputUsername = incomingUser.getUsername();
 //		String inputPassword = incomingUser.getPassword();
 
-		if (myServ.findByUsernameAndPassword(inputUsername, inputPassword).getFirst_name() != null) {
+		if (myServ.findByUsernameAndPassword(inputUsername, inputPassword).getFirstName() != null) {
 
 			Customer currentUser = myServ.findByUsernameAndPassword(inputUsername, inputPassword);
 
 			session.setAttribute("currentUser", currentUser);
 
-			return ("Welcome " + currentUser.getFirst_name());
+			return ("Welcome " + currentUser.getFirstName());
 
 
 		} else {
@@ -55,7 +55,7 @@ public class SessionController {
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
 
 		if (currentUser != null) {
-			return currentUser.getFirst_name();
+			return currentUser.getFirstName();
 		} else {
 			return ("No one is logged in.");
 		}
