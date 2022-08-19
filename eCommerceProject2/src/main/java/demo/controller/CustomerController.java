@@ -41,12 +41,12 @@ public class CustomerController {
 		
 		
 		Customer currentUser = (Customer)session.getAttribute("currentUser");
-		
+		System.out.println(currentUser);
 		
 		if (currentUser!= null) {
 			
-			Customer myCustomer = myServ.getCustomerInfo(currentUser.getCustomer_id());
-			return(myCustomer);
+			Customer myCustomer = myServ.findByCustomerId(currentUser.getCustomerId());
+			return myCustomer;
 		} else {
 			PrintWriter printer = resp.getWriter();
 			
@@ -66,10 +66,11 @@ public class CustomerController {
 	@PostMapping(value="/updateprofilepage")
 	public String updateProfilePage(@RequestBody Customer newProfile, HttpSession session) throws IOException {
 
-
+		System.out.println("Checkpoint 1: " + newProfile);
 		Customer currentUser = (Customer)session.getAttribute("currentUser");
 		
 		if (currentUser != null) {
+			
 			
 			myServ.updateProfilePage(newProfile);
 			

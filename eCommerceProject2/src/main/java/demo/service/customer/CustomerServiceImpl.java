@@ -28,8 +28,12 @@ public class CustomerServiceImpl implements CustomerService {
 	 * It will retrieve info by the customer id.
 	 */
 	@Override
-	public Customer getCustomerInfo(int customerId) {
-		return myDao.getReferenceById(customerId);
+	public Customer findByCustomerId(int customerId) {
+		
+		//remove card info here. I don't want to send it to profile page.
+		
+		
+		return myDao.findByCustomerId(customerId);
 	}
 
 	/*
@@ -37,9 +41,15 @@ public class CustomerServiceImpl implements CustomerService {
 	 * Will not show card information in profile. Instead that should be viewed and altered at checkout.
 	 */
 	@Override
-	public String updateProfilePage(Customer customer) {
+	public String updateProfilePage(Customer updatedCustomer) {
+		Customer currentCustomer = myDao.getReferenceById(updatedCustomer.getCustomerId());
 		
-		myDao.save(customer);
+//		String customerPassword = currentCustomer.getPassword();
+//		String customerUsername = currentCustomer.getUsername();
+		
+//		updatedCustomer.
+		
+		myDao.save(updatedCustomer);
 		
 		return "success";
 	}
