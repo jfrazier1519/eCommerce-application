@@ -1,13 +1,13 @@
 package demo.dao.customer;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
 import demo.model.Customer;
 
-public interface CustomerDao {
+public interface CustomerDao extends JpaRepository<Customer, Integer>{
 
-//		Josh - I'm going to put the methods to alter the profile page here. You'll probably need to put the new account method here as well Dawn.
+	public Customer findByUsernameAndPassword(String username, String password);
 	
-	
-	public Customer getCustomerById(int customerId);
-	
-	public boolean updateProfilePage(Customer customer);
 }

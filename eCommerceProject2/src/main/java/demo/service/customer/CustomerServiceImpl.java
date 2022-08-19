@@ -1,12 +1,27 @@
 package demo.service.customer;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import demo.dao.customer.CustomerDao;
-import demo.dao.customer.CustomerDaoImpl;
 import demo.model.Customer;
 
+@Service
 public class CustomerServiceImpl implements CustomerService {
 
-	CustomerDao myDao = new CustomerDaoImpl();
+	private CustomerDao myDao;
+	
+	
+	@Autowired 
+	public CustomerServiceImpl(CustomerDao myDao){
+		this.myDao=myDao;
+	}
+	
+	
+	//Method needs to be used for login.
+	public Customer findByUsernameAndPassword(String username, String password) {
+		return myDao.findByUsernameAndPassword(username, password);
+	}
 	
 	/**
 	 * This method retrieves all customer info necessary for profile page. 
@@ -14,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public Customer getCustomerInfo(int customerId) {
-		return myDao.getCustomerById(customerId);
+		return myDao.getReferenceById(customerId);
 	}
 
 	/*
@@ -22,10 +37,12 @@ public class CustomerServiceImpl implements CustomerService {
 	 * Will not show card information in profile. Instead that should be viewed and altered at checkout.
 	 */
 	@Override
-	public boolean updateProfilePage(Customer customer) {
+	public String updateProfilePage(Customer customer) {
 		
-		boolean boolResults = myDao.updateProfilePage(customer);
-		return boolResults;
+		myDao.save(customer);
+		
+		return "success";
 	}
+
 
 }

@@ -49,19 +49,19 @@ public class Order {
 	@Column(name="order_status")
 	private String orderStatus;
 	
-	@ManyToOne(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
-	@Column(name="customer_FK")
-	@JsonBackReference
-	private Customer myCustomer;
+//	@ManyToOne(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+//	@Column(name="customer_FK")  // Project won't run with this. ManyToOne and Column can't both be here apparently
+//	@JsonBackReference
+//	private Customer myCustomer;
 	
 	// TODO ManyToMany Relationships on payment table and product table
 	
-	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
-	@JsonManagedReference
-	private List <Payment> myPayments;
+//	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+//	@JsonManagedReference
+//	private List <Payment> myPayments;
 	
-	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
-	@JsonManagedReference
-	private List <Product> myProducts;
+//	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+//	@JsonManagedReference
+//	private List <Product> myProducts;
 
 }

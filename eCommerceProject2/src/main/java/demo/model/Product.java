@@ -30,8 +30,11 @@ public class Product {
 	@Column(name="product_name", nullable=false)
 	String product_name;
 	
-	@ManyToOne(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
-	@JoinColumn(name="category_FK")
+//	@ManyToOne(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+//	@JoinColumn(name="category_FK")
+	
+	//This is a ManyToOne to category
+	
 	int category_id;
 	
 	@Column(name="quantity", nullable=false)

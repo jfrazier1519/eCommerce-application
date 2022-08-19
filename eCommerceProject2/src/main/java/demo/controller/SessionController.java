@@ -1,43 +1,47 @@
 package demo.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import demo.model.Account;
-import demo.service.account.AccountService;
-import demo.service.account.AccountServiceImpl;
+import demo.model.Customer;
+import demo.service.customer.CustomerService;
+
 
 @RestController
 public class SessionController {
 
+	
+	CustomerService myServ;
+	
+	@Autowired
+	public SessionController(CustomerService myServ) {
+		this.myServ = myServ;
+	}
+	
+	
 	@PostMapping(value = "/login")
-	public String login(HttpSession session, HttpServletResponse resp, HttpServletRequest req) {
+	public String login(HttpSession session, HttpServletRequest req, Customer incomingUser) {
 
-		AccountService myServ = new AccountServiceImpl();
-		
+////////POSTMAN TEST
 		String inputUsername = req.getParameter("username");
 		String inputPassword = req.getParameter("password");
-	
 		
-		
-//		String inputUsername = userAccount.getUsername();
-//		String inputPassword = userAccount.getPassword();
+//		String inputUsername = incomingUser.getUsername();
+//		String inputPassword = incomingUser.getPassword();
 
-		if (myServ.findUser(inputUsername, inputPassword).getFirst_name() != null) {
+		if (myServ.findByUsernameAndPassword(inputUsername, inputPassword).getFirst_name() != null) {
 
-			Account currentUser = myServ.findUser(inputUsername, inputPassword);
+			Customer currentUser = myServ.findByUsernameAndPassword(inputUsername, inputPassword);
 
 			session.setAttribute("currentUser", currentUser);
 
 			return ("Welcome " + currentUser.getFirst_name());
 
-			// I NEED TO REDIRECT TO MAIN PAGE ONCE LOGIN WORKS
-//			resp.sendRedirect();
 
 		} else {
 			return ("Failed to login. User and Pass do not match. Try Again.");
@@ -47,9 +51,8 @@ public class SessionController {
 
 	@PostMapping(value = "/getName")
 	public String getLoggedInName(HttpSession session) {
-		AccountService myServ = new AccountServiceImpl();
 
-		Account currentUser = (Account) session.getAttribute("currentUser");
+		Customer currentUser = (Customer) session.getAttribute("currentUser");
 
 		if (currentUser != null) {
 			return currentUser.getFirst_name();
@@ -61,7 +64,7 @@ public class SessionController {
 	@GetMapping(value = "/logout")
 	public String logout(HttpSession session) {
 
-		Account currentUser = (Account) session.getAttribute("currentUser");
+		Customer currentUser = (Customer) session.getAttribute("currentUser");
 
 		if (currentUser != null) {
 			session.invalidate();

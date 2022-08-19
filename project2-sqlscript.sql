@@ -103,7 +103,7 @@ SELECT * FROM orders;
 
 SELECT * FROM order_status;
 
-INSERT INTO accounts VALUES (1, 'username', 'password');
+
 
 INSERT INTO customers VALUES (1, 1, 'josh', 'frazier', '123 wallaby way', 'city', 12345, 'usa', 2401239567, 'myemail@gmail.com', 5000299000000000, 'visa', 0721);
 
