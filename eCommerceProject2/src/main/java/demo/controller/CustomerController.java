@@ -41,7 +41,7 @@ public class CustomerController {
 		
 		
 		Customer currentUser = (Customer)session.getAttribute("currentUser");
-		System.out.println(currentUser);
+//		System.out.println(currentUser);
 		
 		if (currentUser!= null) {
 			

@@ -42,12 +42,23 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public String updateProfilePage(Customer updatedCustomer) {
-		Customer currentCustomer = myDao.getReferenceById(updatedCustomer.getCustomerId());
+		Customer currentCustomer = myDao.findByCustomerId(updatedCustomer.getCustomerId());
 		
-//		String customerPassword = currentCustomer.getPassword();
-//		String customerUsername = currentCustomer.getUsername();
+		//retrieve username, password, credit_card, credit_card_type, and card_expirary_date
 		
-//		updatedCustomer.
+		String customerPassword = currentCustomer.getPassword();
+		String customerUsername = currentCustomer.getUsername();
+		String customerCreditCard = currentCustomer.getCreditCard();
+		String customerCreditCardType = currentCustomer.getCreditCardType();
+		String customerCardExpiraryDate = currentCustomer.getCardExpiraryDate();
+		
+		updatedCustomer.setPassword(customerPassword);
+		updatedCustomer.setUsername(customerUsername);
+		updatedCustomer.setCreditCard(customerCreditCard);
+		updatedCustomer.setCreditCardType(customerCreditCardType);
+		updatedCustomer.setCardExpiraryDate(customerCardExpiraryDate);
+		
+		System.out.println("CHECKPOINT 2: " + updatedCustomer);
 		
 		myDao.save(updatedCustomer);
 		
