@@ -31,9 +31,17 @@ public class CustomerServiceImpl implements CustomerService {
 	public Customer findByCustomerId(int customerId) {
 		
 		//remove card info here. I don't want to send it to profile page.
+		Customer sentCustomer = myDao.findByCustomerId(customerId);
+		
+		sentCustomer.setPassword(null);
+		sentCustomer.setUsername(null);
+		sentCustomer.setCreditCard(null);
+		sentCustomer.setCreditCardType(null);
+		sentCustomer.setCardExpiraryDate(null);
 		
 		
-		return myDao.findByCustomerId(customerId);
+		
+		return sentCustomer;
 	}
 
 	/*
