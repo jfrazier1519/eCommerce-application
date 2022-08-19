@@ -12,13 +12,13 @@ import demo.model.Product;
 
 public class ProductDaoImpl implements ProductDao {
 
-	public static void main(String[] args) {
-		
-		ProductDao myDao = new ProductDaoImpl();
-		
-//		System.out.println(myDao.selectAllProducts());
-		System.out.println(myDao.selectProductByCategory("weapons"));
-	}
+//	public static void main(String[] args) {
+//		
+//		ProductDao myDao = new ProductDaoImpl();
+//		
+////		System.out.println(myDao.selectAllProducts());
+//		System.out.println(myDao.selectProductByCategory("weapons"));
+//	}
 	
 	
 	@Override

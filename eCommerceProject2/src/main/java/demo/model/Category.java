@@ -23,9 +23,10 @@ public class Category {
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@OneToMany(mappedBy="category_id", fetch=FetchType.EAGER)
-	int id;
+	int category_id;
 	
+	
+	//This is a OneToMany to Products
 	
 	@Column(name="category_name", nullable=false)
 	String category_name;

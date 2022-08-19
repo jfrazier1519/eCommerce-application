@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import demo.model.Account;
+import demo.model.Customer;
 import demo.model.Product;
 import demo.service.product.ProductService;
 import demo.service.product.ProductServiceImpl;
@@ -27,7 +27,7 @@ public class ProductController {
 	public void viewAllProducts(HttpSession session, HttpServletResponse resp) throws IOException {
 
 		ProductService myServ = new ProductServiceImpl();
-		Account currentUser = (Account)session.getAttribute("currentUser");
+		Customer currentUser = (Customer)session.getAttribute("currentUser");
 
 		PrintWriter printer = resp.getWriter();
 		if (currentUser != null) {
@@ -44,7 +44,7 @@ public class ProductController {
 	public void viewProductByCategory(HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
 		ProductService myServ = new ProductServiceImpl();
-		Account currentUser = (Account)session.getAttribute("currentUser");
+		Customer currentUser = (Customer)session.getAttribute("currentUser");
 
 		String inputCategory = req.getParameter("Category");
 		
