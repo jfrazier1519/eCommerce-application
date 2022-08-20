@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import demo.dao.order.OrderDao;
 import demo.model.Customer;
 import demo.model.Order;
-import demo.model.Product;
+
 
 @Service
 public class OrderServiceImpl implements OrderService{
@@ -21,34 +21,18 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
-	public List<Order> selectPreviousOrders() {
+	public List<Order> selectPreviousOrders(Customer customer, String status) {
 		// TODO Auto-generated method stub
-		return null;
+		return orderDao.findByMyCustomerAndOrderStatus(customer, status);
 	}
 
 	@Override
-	public Order selectshoppingcart(Customer customer, String status) {
+	public Order insertUpdateOrder(Order order) {
 		// TODO Auto-generated method stub
-		return null;
+		return orderDao.save(order);
 	}
 
-	@Override
-	public Order insertOrder(Order order) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public boolean UpdateQuantity(Product product) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean UpdatePrice(Product product) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 	
 	
 	
