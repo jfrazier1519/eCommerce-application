@@ -1,5 +1,14 @@
 package demo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,33 +16,77 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Entity
+@Table(name = "Customers")
 public class Customer {
 
-	int customer_id;
-	String first_name;
-	String last_name;
-	String address;
-	String city;
-	int postal_code;
-	String country;
-	long tel_no;
-	String email;
-	String credit_card;
-	String credit_card_type;
-	String card_expirary_date;
+	@Id
+	@Column(name = "customer_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int customerId;
+	
+	@Column(name="username", nullable=false)
+	String username;
+	
+	@Column(name="password", nullable=false)
+	String password;
 
-	public Customer(int customer_id, String first_name, String last_name, String address, String city, int postal_code,
-			String country, long tel_no, String email) {
+	@Column(name = "first_name", nullable = false)
+	String firstName;
+
+	@Column(name = "last_name", nullable = false)
+	String lastName;
+
+	@Column(name = "address", nullable = false)
+	String address;
+
+	@Column(name = "city", nullable = false)
+	String city;
+
+	@Column(name = "postal_code", nullable = false)
+	int postalCode;
+
+	@Column(name = "country", nullable = false)
+	String country;
+
+	@Column(name = "tel_no", nullable = false)
+	long telNo;
+
+	@Column(name = "email", nullable = false)
+	String email;
+
+	@Column(name = "credit_card")
+	String creditCard;
+
+	@Column(name = "credit_card_type")
+	String creditCardType;
+
+	@Column(name = "card_expirary_date")
+	String cardExpiraryDate;
+
+	// Constructor without payment info or user/pass
+	public Customer(int customerId, String firstName, String lastName, String address, String city, int postalCode,
+			String country, long telNo, String email) {
 		super();
-		this.customer_id = customer_id;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.customerId = customerId;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.address = address;
 		this.city = city;
-		this.postal_code = postal_code;
+		this.postalCode = postalCode;
 		this.country = country;
-		this.tel_no = tel_no;
+		this.telNo = telNo;
 		this.email = email;
+	}
+	
+	public Customer(String firstName, String lastName, String username, String password) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+
+		
 	}
 
 }

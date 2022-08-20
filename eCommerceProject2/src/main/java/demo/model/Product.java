@@ -1,5 +1,15 @@
 package demo.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,22 +17,51 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Entity
+@Table(name = "Products")
 public class Product {
 
-	int product_id;
-	String product_name;
-	int category_id;
-	int quantity;
-	int price;
-	String product_desc;
-	String product_review;
+	@Id
+	@Column(name = "product_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int product_id;
 
-	public Product(String product_name, int quantity, int price, String product_desc, String product_review) {
+	@Column(name = "product_name", nullable = false)
+	private String product_name;
+
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	private Category category;
+
+	@Column(name = "quantity", nullable = false)
+	private int quantity;
+
+	@Column(name = "price", nullable = false)
+	private int price;
+
+	@Column(name = "product_desc", nullable = false)
+	private String product_desc;
+
+	@Column(name = "product_review", nullable = false)
+	private String product_review;
+
+	public Product(String product_name, Category category, int quantity, int price, String product_desc,
+			String product_review) {
 		super();
 		this.product_name = product_name;
+		this.category = category;
 		this.quantity = quantity;
 		this.price = price;
 		this.product_desc = product_desc;
 		this.product_review = product_review;
 	}
+
+	@Override
+	public String toString() {
+		return "\nProduct [product_id=" + product_id + ", product_name=" + product_name + ", category=" + category
+				+ ", quantity=" + quantity + ", price=" + price + ", product_desc=" + product_desc + ", product_review="
+				+ product_review + "]";
+	}
+	
+	
+
 }

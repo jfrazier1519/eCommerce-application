@@ -5,7 +5,12 @@ import demo.model.Customer;
 public interface CustomerService {
 
 	
-	public Customer getCustomerInfo(int customerId);
+	public Customer findByCustomerId(int customerId);
 	
-	public boolean updateProfilePage(Customer customer);
+	
+	public Customer findByUsernameAndPassword(String username, String password);
+
+
+	public String updateProfilePage(Customer customer);
+
 }

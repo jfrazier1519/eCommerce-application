@@ -8,44 +8,68 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import demo.model.Account;
-import demo.model.Product;
-import demo.service.product.ProductService;
-import demo.service.product.ProductServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import demo.model.Category;
+import demo.model.Customer;
+import demo.model.Product;
+import demo.service.category.CategoryService;
+import demo.service.product.ProductService;
+
+@RestController
+@RequestMapping("/products")
 public class ProductController {
 
-	public static void viewAllProducts(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	
+	private ProductService prodServ;
+	private CategoryService catServ;
+	
+	@Autowired
+	public ProductController(ProductService prodServ, CategoryService catServ) {
+		this.prodServ=prodServ;
+		this.catServ=catServ;
+	}
+	
+	
+	@PostMapping(value="/viewall")
+	public List<Product> viewAllProducts(HttpSession session, HttpServletResponse resp) throws IOException {
 
-		ProductService myServ = new ProductServiceImpl();
-		HttpSession accountSession = req.getSession();
-		Account currentAccount = (Account) accountSession.getAttribute("currentUser");
-
-		PrintWriter printer = resp.getWriter();
-		if (currentAccount != null) {
-			List<Product> allProducts = myServ.selectAllProducts();
-
-			printer.println(allProducts);
+		Customer currentUser = (Customer)session.getAttribute("currentUser");
+		
+		
+		if (currentUser != null) {
+			
+			List<Product> allProducts = prodServ.findAllProducts();
+			return allProducts;
+			
 		} else {
+			PrintWriter printer = resp.getWriter();
 			printer.println("No one is logged in");
+			return null;
 		}
 	}
 
-	public static void viewProductByCategory(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	@PostMapping(value="/viewbycategory")
+	public List<Product> viewProductByCategory(HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-		ProductService myServ = new ProductServiceImpl();
-		HttpSession accountSession = req.getSession();
-		Account currentAccount = (Account) accountSession.getAttribute("currentUser");
+		Customer currentUser = (Customer)session.getAttribute("currentUser");
 
-		String inputCategory = req.getParameter("Category");
+		String catName = req.getParameter("Category");
+		Category queryCategory = catServ.findByCategoryName(catName);
 		
-		PrintWriter printer = resp.getWriter();
-		if (currentAccount != null) {
-			List<Product> allProducts = myServ.selectProductByCategory(inputCategory);
-
-			printer.println(allProducts);
+		if (currentUser != null) {
+			
+			List<Product> allProducts = prodServ.findByCategory(queryCategory);
+		 return allProducts;
+			
 		} else {
+			PrintWriter printer = resp.getWriter();
 			printer.println("No one is logged in");
+			return null;
 		}
+
 	}
 }

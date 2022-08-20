@@ -103,6 +103,7 @@ SELECT * FROM orders;
 
 SELECT * FROM order_status;
 
+<<<<<<< HEAD
 INSERT INTO accounts VALUES (DEFAULT, 'username', 'password');
 INSERT INTO accounts VALUES (DEFAULT, 'dawn', 'thepass');
 INSERT INTO accounts VALUES (DEFAULT, 'eye', 'pizza');
@@ -111,6 +112,9 @@ INSERT INTO customers VALUES (DEFAULT,DEFAULT,'josh', 'frazier', '123 wallaby wa
 INSERT INTO customers VALUES 
 (DEFAULT,DEFAULT,'Dawn','EverGreen','66 hillway','city',54321,'island',5556669999,'email@evergreen.com',1111222233334444,'master',3000
 );
+=======
+
+>>>>>>> 3debcdf69cb28a76b06452cf05b838f5153929cc
 
 
 --SELECT FORMAT (0234567890, '000-000-0000');
