@@ -4,8 +4,10 @@
 
 window.onload = function () {
     document.getElementById("loginButton").addEventListener('click', loginForm)
-    document.getElementById("AccountButton").addEventListener('click', accountForm) //This is going to be a dropdown menu button with (profile page button, orders button, and logout button)
-    document.getElementById("CartButton").addEventListener('click', cartForm)
+    document.getElementById("profileButton").addEventListener('click', profileForm)
+    document.getElementById("ordersButton").addEventListener('click', ordersForm)
+    document.getElementById("logoutButton").addEventListener('click', logoutForm)
+    document.getElementById("cartButton").addEventListener('click', cartForm)
     
 }
 
@@ -15,16 +17,22 @@ function productsForm(theEvent) {
     //forward to login page
     productForward();
 }
-function accountForm(theEvent) {
-
-    // This will have three nested buttons:
-    // - Profile Page
-    // - Orders
-    // - Logout
+function profileForm(theEvent) {
 
     theEvent.preventDefault();
-    AccountStuff();
+    profileForward();
 }
+function ordersForm(theEvent) {
+    
+    theEvent.preventDefault();
+    ordersForward();
+}
+function logoutForm(theEvent) {
+    
+    theEvent.preventDefault();
+    logoutForward();
+}
+
 function cartForm(theEvent) {
     //forward to cart page
     cartForward();
@@ -36,6 +44,22 @@ function cartForm(theEvent) {
 async function productForward() {
 
     // const responsePayload = await fetch('http://localhost:9002/callLoginPage'); 
+
+}
+
+async function profileForward() {
+
+    // const responsePayload = await fetch('http://localhost:9002/callLoginPage'); 
+
+}
+async function ordersForward() {
+
+    // const responsePayload = await fetch('http://localhost:9002/callLoginPage'); 
+
+}
+async function logoutForward() {
+
+    const responsePayload = await fetch('http://localhost:9002/callHomePage'); 
 
 }
 

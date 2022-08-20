@@ -4,9 +4,10 @@
 
 
 window.onload = function () {
+    logout();
     document.getElementById("loginButton").addEventListener('click', loginForm)
-    document.getElementById("AccountButton").addEventListener('click', AccountForm) //This is going to be a dropdown menu button with (profile page button, orders button, and logout button)
-    document.getElementById("CartButton").addEventListener('click', CartForm)
+    document.getElementById("AccountButton").addEventListener('click', registerForm) //This is going to be a dropdown menu button with (profile page button, orders button, and logout button)
+    document.getElementById("CartButton").addEventListener('click', productsForm)
     
 }
 
@@ -16,7 +17,7 @@ function loginForm(theEvent) {
     //forward to login page
     loginForward();
 }
-function AccountForm(theEvent) {
+function registerForm(theEvent) {
 
     // This will have three nested buttons:
     // - Profile Page
@@ -26,10 +27,11 @@ function AccountForm(theEvent) {
     theEvent.preventDefault();
     AccountStuff();
 }
-function CartForm(theEvent) {
+function productsForm(theEvent) {
     //forward to cart page
     cartForward();
 }
+
 
 
 
@@ -46,3 +48,8 @@ async function cartForward() {
 
 }
 
+async function logout() {
+
+    const responsePayload = await fetch('http://localhost:9002/logout');
+
+}
