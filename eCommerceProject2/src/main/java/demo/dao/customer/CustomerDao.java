@@ -13,6 +13,5 @@ public interface CustomerDao extends JpaRepository<Customer, Integer>{
 	
 	public Customer findByUsernameAndPassword(String username, String password);
 	
-	//create new account
-	public void createNewCustomer(Customer customer);
+
 }
