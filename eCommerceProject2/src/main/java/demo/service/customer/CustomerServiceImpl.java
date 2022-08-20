@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import demo.dao.customer.CustomerDao;
+
 import demo.model.Customer;
 
 @Service
@@ -71,5 +72,14 @@ public class CustomerServiceImpl implements CustomerService {
 		return "success";
 	}
 
+
+	@Override
+	public void createNewCustomer(Customer customer) {
+		myDao.save(customer);
+		
+	}
+
+	
+	
 
 }

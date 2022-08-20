@@ -1,5 +1,6 @@
 package demo.service.customer;
 
+
 import demo.model.Customer;
 
 public interface CustomerService {
@@ -12,5 +13,8 @@ public interface CustomerService {
 
 
 	public String updateProfilePage(Customer customer);
+	
+	//create new account
+	public void createNewCustomer(Customer customer);
 
 }
