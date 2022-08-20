@@ -48,8 +48,8 @@ public class CustomerController {
 			Customer myCustomer = myServ.findByCustomerId(currentUser.getCustomerId());
 			return myCustomer;
 		} else {
-			PrintWriter printer = resp.getWriter();
 			
+			PrintWriter printer = resp.getWriter();
 			printer.println("No one is logged in");
 			return null;
 		}
@@ -71,10 +71,9 @@ public class CustomerController {
 		
 		if (currentUser != null) {
 			
-			
 			myServ.updateProfilePage(newProfile);
-			
 			return("Profile Page Updated");
+			
 		} else {
 			return("No one is logged in");
 		}

@@ -39,8 +39,6 @@ public class CustomerServiceImpl implements CustomerService {
 		sentCustomer.setCreditCardType(null);
 		sentCustomer.setCardExpiraryDate(null);
 		
-		
-		
 		return sentCustomer;
 	}
 
