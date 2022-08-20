@@ -53,4 +53,19 @@ public class AccountDaoImpl implements AccountDao {
 		return myAccount;
 	}
 
+
+	@Override				//WE LEFT OFF RIGAHT HERE!!!!!!!!!
+	public boolean makeNewAccount(int accountId,String username, String password) {
+		try(Connection conn = ConnectionFactory.getConnection()) {
+			String ourSQLStatement = "INSERT INTO accounts VALUES (DEFAULT,'?','?');";
+	
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+	
+		
+		return false;
+	}
+
 }

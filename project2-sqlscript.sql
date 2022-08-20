@@ -103,9 +103,19 @@ SELECT * FROM orders;
 
 SELECT * FROM order_status;
 
+<<<<<<< HEAD
+INSERT INTO accounts VALUES (DEFAULT, 'username', 'password');
+INSERT INTO accounts VALUES (DEFAULT, 'dawn', 'thepass');
+INSERT INTO accounts VALUES (DEFAULT, 'eye', 'pizza');
 
+INSERT INTO customers VALUES (DEFAULT,DEFAULT,'josh', 'frazier', '123 wallaby way', 'city', 12345, 'usa', 2401239567, 'myemail@gmail.com', 5000299000000000, 'visa', 0721);
+INSERT INTO customers VALUES 
+(DEFAULT,DEFAULT,'Dawn','EverGreen','66 hillway','city',54321,'island',5556669999,'email@evergreen.com',1111222233334444,'master',3000
+);
+=======
 
-INSERT INTO customers VALUES (1, 1, 'josh', 'frazier', '123 wallaby way', 'city', 12345, 'usa', 2401239567, 'myemail@gmail.com', 5000299000000000, 'visa', 0721);
+>>>>>>> 3debcdf69cb28a76b06452cf05b838f5153929cc
+
 
 --SELECT FORMAT (0234567890, '000-000-0000');
 
@@ -134,18 +144,23 @@ DELETE FROM orders WHERE order_id = 1;
 
 -----------------------------------ACCOUNT METHODS-----------------------------
 
+
 SELECT * FROM accounts;
 
 SELECT customers.customer_id, accounts.username, accounts.password, customers.first_name, customers.last_name 
 FROM accounts
 INNER JOIN customers
 ON accounts.account_id = customers.account_id
+<<<<<<< HEAD
+WHERE accounts.username = username AND accounts.PASSWORD = PASSWORD; 
+=======
 WHERE accounts.username = 'username' AND accounts.PASSWORD = 'password';
 
 SELECT * FROM accounts;
 SELECT * FROM customers;
+>>>>>>> b7afdf39475fe54ea20e2d475d99340ba2c63946
  
-
+INSERT INTO accounts VALUES (DEFAULT, 'username', 'password');
 
 
 
