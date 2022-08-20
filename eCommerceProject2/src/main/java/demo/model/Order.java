@@ -50,18 +50,18 @@ public class Order {
 	@Column(name="order_status")
 	private String orderStatus;
 	
-	@ManyToOne(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE, fetch=FetchType.LAZY)
 	@JoinColumn(name="customer_FK")  
 	@JsonBackReference
 	private Customer myCustomer;
 	
 	// -- TODO Add ManytoMany relationships BOTH WAYS --
-	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
-	@JsonManagedReference
+	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.LAZY)
+//	@JsonManagedReference
 	private List <Payment> myPayments;
 	
-	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
-	@JsonManagedReference
+	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.LAZY)
+//	@JsonManagedReference
 	private List <Product> myProducts;
 
 }

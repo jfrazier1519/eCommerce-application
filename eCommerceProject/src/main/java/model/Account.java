@@ -10,11 +10,20 @@ public class Account {
 	
 
 	public Account() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
+	//	fields for making new account
+	public Account(int accountId, int customerId, String username, String password) {
+		super();
+		this.accountId = accountId;
+		this.customerId = customerId;
+		this.username = username;
+		this.password = password;
+}
 
 	public Account(int accountId, int customerId, String username, String password, String first_name, String last_name) {
+
 		super();
 		this.accountId = accountId;
 		this.customerId = customerId;

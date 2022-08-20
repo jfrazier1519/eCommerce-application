@@ -80,4 +80,21 @@ public class CustomerController {
 	}
 	
 	
+	/**
+	 * A method that checks to create a new customer
+	 *
+	 * 
+	 * @param req
+	 * @param resp
+	 * @return 
+	 * @throws IOException
+	 */
+	@PostMapping(value="/createcustomer")
+	public String createNewCustomer(@RequestBody Customer newCustomer,HttpSession session)throws IOException {
+		myServ.createNewCustomer(newCustomer);
+		return "new customer";
+	}
+	
+	
+	
 }
