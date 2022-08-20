@@ -35,16 +35,16 @@ public class Payment {
 	@Column(name="payment_type")
 	private String paymentType;
 	
-	@Column(name="payment_status")
-	private String paymentStatus;
+	@Column(name="Payment_num")
+	private String paymentNum;
 	
-	@Column(name="payment_date")
-	private int paymentDate;
+	@Column(name="payment_expiration")
+	private String paymentExpiration;
 	
 	@Column(name="allowed")
 	private String allowed;
 	
-	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+	@ManyToMany
 	@JsonBackReference
 	private List<Order> myOrders;
 
