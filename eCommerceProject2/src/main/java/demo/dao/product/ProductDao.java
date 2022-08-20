@@ -2,11 +2,14 @@ package demo.dao.product;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import demo.model.Category;
 import demo.model.Product;
 
-public interface ProductDao {
+public interface ProductDao extends JpaRepository<Product, Integer>{
 	
-	public List<Product> selectAllProducts();
+	public List<Product> findAll();
 	
-	public List<Product> selectProductByCategory(String catName);
+	public List<Product> findByCategory(Category category);
 }

@@ -21,16 +21,21 @@ import lombok.NoArgsConstructor;
 public class Category {
 	
 	@Id
-	@Column(name="id")
+	@Column(name="category_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int category_id;
-	
+	int categoryId;
 	
 	//This is a OneToMany to Products
 	
 	@Column(name="category_name", nullable=false)
-	String category_name;
+	String categoryName;
+
+
+	public Category(String categoryName) {
+		super();
+		this.categoryName = categoryName;
+	}
 	
-
-
+	
+	
 }

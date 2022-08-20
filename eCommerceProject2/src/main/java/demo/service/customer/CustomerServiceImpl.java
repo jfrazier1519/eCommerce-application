@@ -31,9 +31,15 @@ public class CustomerServiceImpl implements CustomerService {
 	public Customer findByCustomerId(int customerId) {
 		
 		//remove card info here. I don't want to send it to profile page.
+		Customer sentCustomer = myDao.findByCustomerId(customerId);
 		
+		sentCustomer.setPassword(null);
+		sentCustomer.setUsername(null);
+		sentCustomer.setCreditCard(null);
+		sentCustomer.setCreditCardType(null);
+		sentCustomer.setCardExpiraryDate(null);
 		
-		return myDao.findByCustomerId(customerId);
+		return sentCustomer;
 	}
 
 	/*
@@ -42,12 +48,23 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public String updateProfilePage(Customer updatedCustomer) {
-		Customer currentCustomer = myDao.getReferenceById(updatedCustomer.getCustomerId());
+		Customer currentCustomer = myDao.findByCustomerId(updatedCustomer.getCustomerId());
 		
-//		String customerPassword = currentCustomer.getPassword();
-//		String customerUsername = currentCustomer.getUsername();
+		//retrieve username, password, credit_card, credit_card_type, and card_expirary_date
 		
-//		updatedCustomer.
+		String customerPassword = currentCustomer.getPassword();
+		String customerUsername = currentCustomer.getUsername();
+		String customerCreditCard = currentCustomer.getCreditCard();
+		String customerCreditCardType = currentCustomer.getCreditCardType();
+		String customerCardExpiraryDate = currentCustomer.getCardExpiraryDate();
+		
+		updatedCustomer.setPassword(customerPassword);
+		updatedCustomer.setUsername(customerUsername);
+		updatedCustomer.setCreditCard(customerCreditCard);
+		updatedCustomer.setCreditCardType(customerCreditCardType);
+		updatedCustomer.setCardExpiraryDate(customerCardExpiraryDate);
+		
+		System.out.println("CHECKPOINT 2: " + updatedCustomer);
 		
 		myDao.save(updatedCustomer);
 		
