@@ -15,9 +15,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -52,16 +49,26 @@ public class Order {
 	
 	@ManyToOne(cascade=CascadeType.MERGE, fetch=FetchType.LAZY)
 	@JoinColumn(name="customer_FK")  
-	@JsonBackReference
 	private Customer myCustomer;
 	
 	// -- TODO Add ManytoMany relationships BOTH WAYS --
 	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.LAZY)
-//	@JsonManagedReference
 	private List <Payment> myPayments;
 	
 	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.LAZY)
-//	@JsonManagedReference
 	private List <Product> myProducts;
+
+	public Order(Date order_date, int quantity, int total, String orderStatus, Customer myCustomer,
+			List<Product> myProducts) {
+		super();
+		this.order_date = order_date;
+		this.quantity = quantity;
+		this.total = total;
+		this.orderStatus = orderStatus;
+		this.myCustomer = myCustomer;
+		this.myProducts = myProducts;
+	}
+	
+	
 
 }
