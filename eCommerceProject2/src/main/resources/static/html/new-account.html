@@ -11,7 +11,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="../css/loginstyles.css" rel="stylesheet">
+    <link href="../css/newaccount.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/homestyles.css">
    
 
@@ -36,23 +36,54 @@
 
         <main class="form-signin w-100 m-auto">
             <form>
-                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+                <h1 class="h3 mb-3 fw-normal">Please enter your information</h1>
 
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="loginUsername" placeholder="name@example.com">
-                    <label for="floatingInput">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="name@example.com">
+                    <label class="inputText" for="floatingInput">Username</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="loginPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <label class="inputText" for="floatingPassword">Password</label>
                 </div>
-
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="firstName" placeholder="John">
+                    <label class="inputText"for="floatingInput">FirstName</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="lastName" placeholder="Wood">
+                    <label class="inputText  for="floatingInput">LastName</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="address" placeholder="123 street">
+                    <label class="inputText for="floatingInput">Address</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="city" placeholder="City">
+                    <label class="inputText for="floatingInput">City</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="postalCode" placeholder="zip">
+                    <label class="inputText for="floatingInput">PostalCode</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="country" placeholder="USA">
+                    <label class="inputText for="floatingInput">Country</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="phoneNumber" placeholder="5554325555">
+                    <label class="inputText for="floatingInput">PhoneNumber</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="email" placeholder="myemail@LES.com">
+                    <label class="inputText for="floatingInput">Email</label>
+                </div>
                 <div class="checkbox mb-3">
                     <label>
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit" id="loginButton">Sign in</button>
+                <button class="w-100 btn btn-lg btn-primary" type="submit" id="newUserButton">Sign up</button>
                 <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
             </form>
         </main>
