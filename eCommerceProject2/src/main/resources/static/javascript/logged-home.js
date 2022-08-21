@@ -6,7 +6,7 @@ window.onload = function () {
     document.getElementById("cartButton").addEventListener('click', cart)
     document.getElementById("profileButton").addEventListener('click', profile)
     document.getElementById("ordersButton").addEventListener('click', orders)
-    document.getElementById("accountButton").addEventListener('click', logout)
+    document.getElementById("logoutButton").addEventListener('click', logout)
     
     
 }
@@ -29,7 +29,11 @@ function cart(){
 }
 
 function logout(){
-    //this will access logout server endpoint to invalidate session
+    let xhttp = new XMLHttpRequest();
+    xhttp.open('GET', `http://localhost:9002/logout`);
+   xhttp.send();
+
+   window.location.href = "http://localhost:9002/html/home.html";
 }
 
 
