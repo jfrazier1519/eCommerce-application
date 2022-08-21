@@ -4,35 +4,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import demo.model.Customer;
 import demo.service.customer.CustomerService;
 
-
-@RestController
+@Controller
 public class SessionController {
 
-	
 	CustomerService myServ;
-	
+
 	@Autowired
 	public SessionController(CustomerService myServ) {
 		this.myServ = myServ;
 	}
-	
-	
-	@PostMapping(value = "/login")
-	public String login(HttpSession session, HttpServletRequest req, Customer incomingUser) {
 
-////////POSTMAN TEST
+	@PostMapping(value = "/login")
+	public String login(HttpSession session, HttpServletRequest req /* @RequestBody Customer incomingUser */) {
+
 		String inputUsername = req.getParameter("username");
 		String inputPassword = req.getParameter("password");
-		
-//		String inputUsername = incomingUser.getUsername();
-//		String inputPassword = incomingUser.getPassword();
 
 		if (myServ.findByUsernameAndPassword(inputUsername, inputPassword).getFirstName() != null) {
 
@@ -40,11 +34,10 @@ public class SessionController {
 
 			session.setAttribute("currentUser", currentUser);
 
-			return ("Welcome " + currentUser.getFirstName());
-
+			return "redirect:/html/logged-home.html";
 
 		} else {
-			return ("Failed to login. User and Pass do not match. Try Again.");
+			return "redirect:/html/home.html";
 		}
 
 	}
@@ -62,15 +55,10 @@ public class SessionController {
 	}
 
 	@GetMapping(value = "/logout")
-	public String logout(HttpSession session) {
+	public void logout(HttpSession session) {
 
-		Customer currentUser = (Customer) session.getAttribute("currentUser");
+//		Customer currentUser = (Customer) session.getAttribute("currentUser");
+		session.invalidate();
 
-		if (currentUser != null) {
-			session.invalidate();
-			return ("You have logged out.");
-		} else {
-			return ("No one is logged in.");
-		}
 	}
 }

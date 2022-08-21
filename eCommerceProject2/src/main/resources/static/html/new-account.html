@@ -11,7 +11,8 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="../css/loginstyles.css" rel="stylesheet">
+
+    <link href="../css/newaccountstyles.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/homestyles.css">
    
 
@@ -26,9 +27,9 @@
             <div>
                 <h3 class="float-md-start mb-0">LES</h3>
                 <nav class="nav nav-masthead justify-content-center float-md-end">
-                    <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link fw-bold py-1 px-0" href="#">Register</a>
-                    <a class="nav-link fw-bold py-1 px-0" href="#">Login</a>
+                    <a id="homeButton" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
+					<a id="registerButton" class="nav-link fw-bold py-1 px-0" href="#">Register</a>
+					<a id="loginButton" class="nav-link fw-bold py-1 px-0" href="#">Login</a>
                 </nav>
             </div>
         </header>
@@ -40,11 +41,11 @@
 
                 <div class="form-floating">
                     <input type="text" class="form-control" id="loginUsername" placeholder="name@example.com">
-                    <label for="floatingInput">Username</label>
+                    <label class="inputText" for="floatingInput">Username</label>
                 </div>
                 <div class="form-floating">
                     <input type="password" class="form-control" id="loginPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
+                    <label class="inputText" for="floatingPassword">Password</label>
                 </div>
 
                 <div class="checkbox mb-3">
