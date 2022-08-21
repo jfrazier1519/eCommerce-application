@@ -13,7 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -50,7 +50,7 @@ public class Product {
 	private String product_review;
 	
 	@ManyToMany
-	@JsonBackReference
+	@JsonIgnore
 	private List<Order> Orders;
 
 	public Product(String product_name, Category category, int quantity, int price, String product_desc,
