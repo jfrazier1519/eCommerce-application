@@ -91,6 +91,7 @@ public class CustomerController {
 	 */
 	@PostMapping(value="/createcustomer")
 	public String createNewCustomer(@RequestBody Customer newCustomer,HttpSession session)throws IOException {
+		
 		myServ.createNewCustomer(newCustomer);
 		return "new customer";
 	}

@@ -1,70 +1,41 @@
 
 
 
-
 window.onload = function () {
-    document.getElementById("loginButton").addEventListener('click', loginForm)
-    document.getElementById("profileButton").addEventListener('click', profileForm)
-    document.getElementById("ordersButton").addEventListener('click', ordersForm)
-    document.getElementById("logoutButton").addEventListener('click', logoutForm)
-    document.getElementById("cartButton").addEventListener('click', cartForm)
+    document.getElementById("homeButton").addEventListener('click', home)
+    document.getElementById("cartButton").addEventListener('click', cart)
+    document.getElementById("profileButton").addEventListener('click', profile)
+    document.getElementById("ordersButton").addEventListener('click', orders)
+    document.getElementById("logoutButton").addEventListener('click', logout)
+    
     
 }
 
-
-//Form naturally wants to forward to another page. preventDefault keeps it from doing so.
-function productsForm(theEvent) {
-    //forward to login page
-    productForward();
-}
-function profileForm(theEvent) {
-
-    theEvent.preventDefault();
-    profileForward();
-}
-function ordersForm(theEvent) {
-    
-    theEvent.preventDefault();
-    ordersForward();
-}
-function logoutForm(theEvent) {
-    
-    theEvent.preventDefault();
-    logoutForward();
+function home(){
+    window.location.href = "http://localhost:9002/html/logged-home.html";
 }
 
-function cartForm(theEvent) {
-    //forward to cart page
-    cartForward();
+function profile(){
+    window.location.href = "http://localhost:9002/html/profile.html";
+}
+
+function orders(){
+    window.location.href = "http://localhost:9002/html/orders.html";
+}
+
+
+function cart(){
+    window.location.href = "http://localhost:9002/html/cart.html";
+}
+
+function logout(){
+    let xhttp = new XMLHttpRequest();
+    xhttp.open('GET', `http://localhost:9002/logout`);
+   xhttp.send();
+
+   window.location.href = "http://localhost:9002/html/home.html";
 }
 
 
 
 
-async function productForward() {
-
-    // const responsePayload = await fetch('http://localhost:9002/callLoginPage'); 
-
-}
-
-async function profileForward() {
-
-    // const responsePayload = await fetch('http://localhost:9002/callLoginPage'); 
-
-}
-async function ordersForward() {
-
-    // const responsePayload = await fetch('http://localhost:9002/callLoginPage'); 
-
-}
-async function logoutForward() {
-
-    const responsePayload = await fetch('http://localhost:9002/callHomePage'); 
-
-}
-
-async function cartForward() {
-
-    const responsePayload = await fetch('http://localhost:9002/callHomePage');
-
-}
