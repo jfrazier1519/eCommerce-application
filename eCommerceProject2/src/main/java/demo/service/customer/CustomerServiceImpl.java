@@ -76,6 +76,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public void createNewCustomer(Customer customer) {
+		
+		
+		
 		myDao.save(customer);
 		
 	}
