@@ -10,4 +10,6 @@ public interface ProductService {
 	public List<Product> findAllProducts();
 
 	public List<Product> findByCategory(Category category);
+	
+	public List<Product> UpadateListOfProducts(List<Product> products);
 }
