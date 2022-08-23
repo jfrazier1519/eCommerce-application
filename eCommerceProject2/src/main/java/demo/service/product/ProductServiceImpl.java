@@ -29,4 +29,9 @@ public class ProductServiceImpl implements ProductService {
 		return myDao.findByCategory(category);
 	}
 
+	@Override
+	public List<Product> UpadateListOfProducts(List<Product> products) {
+		return myDao.saveAll(products);
+	}
+
 }
