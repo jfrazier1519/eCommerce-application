@@ -13,6 +13,7 @@ import demo.model.Customer;
 import demo.model.Order;
 import demo.model.Payment;
 import demo.model.Product;
+import demo.service.customer.CustomerService;
 import demo.service.order.OrderService;
 import demo.service.payment.PaymentService;
 import demo.service.product.ProductService;
@@ -22,20 +23,23 @@ public class CheckoutController {
 	private OrderService orderService;
 	private PaymentService paymentService;
 	private ProductService productService;
+	private CustomerService customerService;
 	
 	@Autowired
 	public CheckoutController(OrderService orderService, PaymentService paymentService,
-			ProductService productService) {
+			ProductService productService, CustomerService customerService) {
 		this.orderService = orderService;
 		this.paymentService = paymentService;
 		this.productService = productService;
+		this.customerService = customerService;
 	}
 	
 	
 	@PostMapping("/checkout")
 	public boolean checkout(HttpSession session) {
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
-		List<Order> olist = orderService.selectPreviousOrders(currentUser, "shoppingCart");
+		Customer myCustomer = customerService.findByCustomerId(currentUser.getCustomerId());
+		List<Order> olist = orderService.selectPreviousOrders(myCustomer, "shoppingCart");
 		Order temp = olist.get(0);
 		for(Product p : temp.getMyProducts()){
 			if(p.getQuantity() == 0) {
@@ -45,7 +49,7 @@ public class CheckoutController {
 		}
 		productService.UpadateListOfProducts(temp.getMyProducts());
 		temp.setOrderStatus("previousOrder");
-		orderService.insertUpdateOrder(temp);
+		orderService.UpdateOrder(temp);
 
 		return true;
 		
