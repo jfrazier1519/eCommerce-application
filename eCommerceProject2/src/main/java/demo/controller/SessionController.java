@@ -42,16 +42,22 @@ public class SessionController {
 
 	}
 
-	@PostMapping(value = "/getName")
-	public String getLoggedInName(HttpSession session) {
+	/**
+	 * Method to retrieve the current user object in session and return it to client if exists.
+	 * Otherwise return null object.
+	 * 
+	 * @param session
+	 * @return currentUser if one currently exists. Otherwise return null
+	 */
+	@PostMapping(value = "/getCurrentUser")
+	public Customer getCurrentUser(HttpSession session) {
 
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
 
-		if (currentUser != null) {
-			return currentUser.getFirstName();
-		} else {
-			return ("No one is logged in.");
+		if(currentUser == null) {
+			return new Customer(null, null, null, null);
 		}
+		return currentUser;
 	}
 
 	@GetMapping(value = "/logout")
