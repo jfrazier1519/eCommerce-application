@@ -29,7 +29,7 @@ public class Product {
 	@Id
 	@Column(name = "product_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int product_id;
+	private int productId;
 
 	@Column(name = "product_name", nullable = false)
 	private String product_name;
@@ -66,7 +66,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "\nProduct [product_id=" + product_id + ", product_name=" + product_name + ", category=" + category
+		return "\nProduct [product_id=" + productId + ", product_name=" + product_name + ", category=" + category
 				+ ", quantity=" + quantity + ", price=" + price + ", product_desc=" + product_desc + ", product_review="
 				+ product_review + "]";
 	}

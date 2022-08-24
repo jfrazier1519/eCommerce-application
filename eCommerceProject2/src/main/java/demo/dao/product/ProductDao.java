@@ -12,4 +12,6 @@ public interface ProductDao extends JpaRepository<Product, Integer>{
 	public List<Product> findAll();
 	
 	public List<Product> findByCategory(Category category);
+	
+	public Product findByProductId(int id);
 }
