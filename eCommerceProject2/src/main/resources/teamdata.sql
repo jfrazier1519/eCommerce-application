@@ -10,5 +10,5 @@ INSERT INTO products (product_id, product_name, category_category_id, quantity, 
 INSERT INTO products (product_id, product_name, category_category_id, quantity, price, product_desc, product_review) VALUES (2, 'infinity stones', 2, 6, 2000000.00, 'yes, its those stones', 'are these even real?');
 INSERT INTO products (product_id, product_name, category_category_id, quantity, price, product_desc, product_review) VALUES (3, 'grappling hook', 3, 50, 100.00, 'adaptable fit to any wrist type', 'fits like a glove');
 
-
+INSERT INTO orders (order_id, order_status, order_date, total_quantity, price_total, customer_fk) VALUES (1,'previousOrder', '2022-8-23', 1 , 100, 1);
 --We have to specify the rows we're inserting into.
