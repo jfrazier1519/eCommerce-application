@@ -6,10 +6,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import demo.model.Customer;
 import demo.model.Order;
+import demo.model.Payment;
 import demo.model.Product;
 import demo.service.order.OrderService;
 import demo.service.payment.PaymentService;
@@ -49,5 +51,24 @@ public class CheckoutController {
 		
 	}
 	
+	@PostMapping("/paymentverification")
+	public boolean checkCard( HttpSession session) {
+		Customer currentUser = (Customer) session.getAttribute("currentUser");
+		List<Payment> allApprovedCards= paymentService.selectAllPayments();
+		for(Payment p : allApprovedCards) {
+			if(p.getPaymentNum().equals(currentUser.getCreditCard()) &&
+					p.getPaymentType().equals(currentUser.getCreditCardType()) &&
+					p.getPaymentExpiration().equals(currentUser.getCardExpiraryDate())) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	@PostMapping("/testaddpayment")
+	public Payment addPayment(@RequestBody Payment payment) {
+		return paymentService.InsertUpdatePayment(payment);
+	}
 	
 }

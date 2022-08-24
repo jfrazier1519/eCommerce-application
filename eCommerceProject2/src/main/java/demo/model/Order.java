@@ -51,10 +51,6 @@ public class Order {
 	@JoinColumn(name="customer_FK")  
 	private Customer myCustomer;
 	
-	// -- TODO Add ManytoMany relationships BOTH WAYS --
-	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.LAZY)
-	private List <Payment> myPayments;
-	
 	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.LAZY)
 	private List <Product> myProducts;
 
