@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< eCommerceProject/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
-Built-By: Detail
-Build-Jdk: 11.0.15.1
-=======
 Built-By: Chandler Carnes
 Build-Jdk: 11.0.2
->>>>>>> eCommerceProject/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
 Created-By: Maven Integration for Eclipse
 
