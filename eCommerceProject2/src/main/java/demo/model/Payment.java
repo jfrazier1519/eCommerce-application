@@ -38,12 +38,5 @@ public class Payment {
 	
 	@Column(name="payment_expiration")
 	private String paymentExpiration;
-	
-	@Column(name="allowed")
-	private String allowed;
-	
-	@ManyToMany
-	@JsonIgnore
-	private List<Order> myOrders;
 
 }
