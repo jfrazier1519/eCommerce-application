@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +40,8 @@ public class CheckoutController {
 	public boolean checkout(HttpSession session) {
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
 		Customer myCustomer = customerService.findByCustomerId(currentUser.getCustomerId());
+		myCustomer.setUsername(currentUser.getUsername());
+		myCustomer.setPassword(currentUser.getPassword());
 		List<Order> olist = orderService.selectPreviousOrders(myCustomer, "shoppingCart");
 		Order temp = olist.get(0);
 		for(Product p : temp.getMyProducts()){
@@ -49,13 +52,13 @@ public class CheckoutController {
 		}
 		productService.UpadateListOfProducts(temp.getMyProducts());
 		temp.setOrderStatus("previousOrder");
-		orderService.UpdateOrder(temp);
+		orderService.insertOrder(temp);
 
 		return true;
 		
 	}
 	
-	@PostMapping("/paymentverification")
+	@GetMapping("/paymentverification")
 	public boolean checkCard( HttpSession session) {
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
 		List<Payment> allApprovedCards= paymentService.selectAllPayments();
