@@ -66,7 +66,7 @@ public class CustomerServiceImpl implements CustomerService {
 		updatedCustomer.setCreditCardType(customerCreditCardType);
 		updatedCustomer.setCardExpiraryDate(customerCardExpiraryDate);
 		
-		System.out.println("CHECKPOINT 2: " + updatedCustomer);
+//		System.out.println("CHECKPOINT 2: " + updatedCustomer);
 		
 		myDao.save(updatedCustomer);
 		
