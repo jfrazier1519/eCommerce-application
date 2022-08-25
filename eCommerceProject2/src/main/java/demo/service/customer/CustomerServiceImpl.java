@@ -20,14 +20,20 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 	
 	
-	//Method needs to be used for login.
+	/**
+	 * Implements business logic for information concerning database. Passes method 
+	 * call from Dao to Controller.
+	 */
 	public Customer findByUsernameAndPassword(String username, String password) {
 		return myDao.findByUsernameAndPassword(username, password);
 	}
 	
 	/**
-	 * This method retrieves all customer info necessary for profile page. 
-	 * It will retrieve info by the customer id.
+	 * Implements business logic for information concerning database. Passes method 
+	 * call from Dao to Controller.
+	 * Since this is retrieving info for the profile page (and we don't want
+	 * sensitive info displayed there), set sensitive info to null before passing 
+	 * to controller.
 	 */
 	@Override
 	public Customer findByCustomerId(int customerId) {
@@ -45,8 +51,10 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	/*
-	 * This method will be used to retrieve all necessary information for the profile page.
-	 * Will not show card information in profile. Instead that should be viewed and altered at checkout.
+	 * Implements business logic for information concerning database. Passes method 
+	 * call from Dao to Controller. Since this is sending a new/updated customer object 
+	 * to database, retrieve and store the missing values (sensitive data we omitted) before storing
+	 * in db.
 	 */
 	@Override
 	public String updateProfilePage(Customer updatedCustomer) {
@@ -66,7 +74,6 @@ public class CustomerServiceImpl implements CustomerService {
 		updatedCustomer.setCreditCardType(customerCreditCardType);
 		updatedCustomer.setCardExpiraryDate(customerCardExpiraryDate);
 		
-//		System.out.println("CHECKPOINT 2: " + updatedCustomer);
 		
 		myDao.save(updatedCustomer);
 		
@@ -76,8 +83,6 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public void createNewCustomer(Customer customer) {
-		
-		
 		
 		myDao.save(customer);
 		

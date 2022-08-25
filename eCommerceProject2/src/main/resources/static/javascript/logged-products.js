@@ -21,6 +21,7 @@ window.onload = function () {
 
 //Use the add to cart method here Chandler. Excuse the mess. Mistakes were made.
 function addToCart(){
+    
 console.log("Button clicked! Item should be added to cart. But the logic isn't here. HELP.")
 
 }
