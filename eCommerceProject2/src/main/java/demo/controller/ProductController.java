@@ -40,16 +40,16 @@ public class ProductController {
 		Customer currentUser = (Customer)session.getAttribute("currentUser");
 		
 		
-		if (currentUser != null) {
+//		if (currentUser != null) {
 			
 			List<Product> allProducts = prodServ.findAllProducts();
 			return allProducts;
 			
-		} else {
-			PrintWriter printer = resp.getWriter();
-			printer.println("No one is logged in");
-			return null;
-		}
+//		} else {
+//			PrintWriter printer = resp.getWriter();
+//			printer.println("No one is logged in");
+//			return null;
+//		}
 	}
 
 	@PostMapping(value="/viewbycategory")

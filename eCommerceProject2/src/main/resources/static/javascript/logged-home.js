@@ -30,7 +30,7 @@ function cart(){
 }
 
 function products(){
-    window.location.href = "http://localhost:9002/html/products.html";
+    window.location.href = "http://localhost:9002/html/logged-products.html";
 }
 
 function logout(){
