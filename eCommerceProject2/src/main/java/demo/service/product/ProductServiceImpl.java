@@ -34,4 +34,10 @@ public class ProductServiceImpl implements ProductService {
 		return myDao.saveAll(products);
 	}
 
+	@Override
+	public Product findById(int id) {
+		// TODO Auto-generated method stub
+		return myDao.findByProductId(id);
+	}
+
 }

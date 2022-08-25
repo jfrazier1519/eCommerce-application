@@ -27,14 +27,15 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
-	public Order insertUpdateOrder(Order order) {
+	public Order insertOrder(Order order) {
 		// TODO Auto-generated method stub
 		return orderDao.save(order);
 	}
 
-
-	
-	
-	
+	@Override
+	public Order UpdateOrder(Order order) {
+		
+		return null;
+	}
 
 }

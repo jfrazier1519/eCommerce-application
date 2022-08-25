@@ -11,5 +11,7 @@ public interface ProductService {
 
 	public List<Product> findByCategory(Category category);
 	
+	public Product findById(int id);
+	
 	public List<Product> UpadateListOfProducts(List<Product> products);
 }

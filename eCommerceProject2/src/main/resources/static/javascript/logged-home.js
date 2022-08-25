@@ -7,6 +7,7 @@ window.onload = function () {
     document.getElementById("profileButton").addEventListener('click', profile)
     document.getElementById("ordersButton").addEventListener('click', orders)
     document.getElementById("logoutButton").addEventListener('click', logout)
+    document.getElementById("productsButton").addEventListener('click', products);
     
     
 }
@@ -26,6 +27,10 @@ function orders(){
 
 function cart(){
     window.location.href = "http://localhost:9002/html/cart.html";
+}
+
+function products(){
+    window.location.href = "http://localhost:9002/html/logged-products.html";
 }
 
 function logout(){

@@ -21,12 +21,12 @@ public class PaymentServiceImpl implements PaymentService{
 	@Override
 	public Payment InsertUpdatePayment(Payment payment) {
 		// TODO Auto-generated method stub
-		return null;
+		return paymentDao.save(payment);
 	}
 
 	@Override
 	public List<Payment> selectAllPayments() {
 		// TODO Auto-generated method stub
-		return null;
+		return paymentDao.findAll();
 	}
 }
