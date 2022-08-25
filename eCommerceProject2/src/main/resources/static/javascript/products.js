@@ -13,23 +13,33 @@ window.onload = function () {
 
 
 
-// async function getProducts() {
+async function getProducts() {
 
-//    //Ajax logic to get product items upon load window load
-//    //Then DOM manipulate items into a table in html page
+    let xhttp = new XMLHttpRequest();
 
-    
+    xhttp.onreadystatechange = function () {
 
-// }
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            let productsList = JSON.parse(xhttp.responseText);
+            productsDOM(productsList);
+        }
+    }
+    xhttp.open('POST', 'http://localhost:9002/products/viewall')
+    xhttp.send();
+}
 
-function account(){
+function productsDOM(productsList){
+    documents.getElementById()
+}
+
+function account() {
     window.location.href = "http://localhost:9002/html/login.html";
 }
 
-function home(){
+function home() {
     window.location.href = "http://localhost:9002/html/logged-home.html";
 }
 
-function cart(){
+function cart() {
     window.location.href = "http://localhost:9002/html/cart.html";
 }
