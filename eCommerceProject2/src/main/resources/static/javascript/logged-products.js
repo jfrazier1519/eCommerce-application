@@ -30,7 +30,6 @@ let prod7Quant = 0;
 let prod8Quant = 0;
 
 
-//Use the add to cart method here Chandler. Excuse the mess. Mistakes were made.
 function addToCart1() {
 
     if (prod1Quant != 0) {
@@ -48,13 +47,14 @@ function addToCart1() {
         xhttp.send();
     }
     else {
+        document.getElementById("cartButton1").innerText = "Item Out of Stock";
         console.log("No item in inventory.")
     }
 }
 
 function addToCart2() {
 
-    if (prod1Quant != 0) {
+    if (prod2Quant != 0) {
 
         let xhttp = new XMLHttpRequest();
 
@@ -69,13 +69,14 @@ function addToCart2() {
         xhttp.send();
     }
     else {
+        document.getElementById("cartButton2").innerText = "Item Out of Stock";
         console.log("No item in inventory.")
     }
 }
 
 function addToCart3() {
 
-    if (prod1Quant != 0) {
+    if (prod3Quant != 0) {
 
         let xhttp = new XMLHttpRequest();
 
@@ -90,13 +91,14 @@ function addToCart3() {
         xhttp.send();
     }
     else {
+        document.getElementById("cartButton3").innerText = "Item Out of Stock";
         console.log("No item in inventory.")
     }
 }
 
 function addToCart4() {
 
-    if (prod1Quant != 0) {
+    if (prod4Quant != 0) {
 
         let xhttp = new XMLHttpRequest();
 
@@ -111,13 +113,14 @@ function addToCart4() {
         xhttp.send();
     }
     else {
+        document.getElementById("cartButton4").innerText = "Item Out of Stock";
         console.log("No item in inventory.")
     }
 }
 
 function addToCart5() {
 
-    if (prod1Quant != 0) {
+    if (prod5Quant != 0) {
 
         let xhttp = new XMLHttpRequest();
 
@@ -132,13 +135,14 @@ function addToCart5() {
         xhttp.send();
     }
     else {
+        document.getElementById("cartButton5").innerText = "Item Out of Stock";
         console.log("No item in inventory.")
     }
 }
 
 function addToCart6() {
 
-    if (prod1Quant != 0) {
+    if (prod6Quant != 0) {
 
         let xhttp = new XMLHttpRequest();
 
@@ -153,13 +157,14 @@ function addToCart6() {
         xhttp.send();
     }
     else {
+        document.getElementById("cartButton6").innerText = "Item Out of Stock";
         console.log("No item in inventory.")
     }
 }
 
 function addToCart7() {
 
-    if (prod1Quant != 0) {
+    if (prod7Quant != 0) {
 
         let xhttp = new XMLHttpRequest();
 
@@ -174,13 +179,14 @@ function addToCart7() {
         xhttp.send();
     }
     else {
+        document.getElementById("cartButton7").innerText = "Item Out of Stock";
         console.log("No item in inventory.")
     }
 }
 
 function addToCart8() {
 
-    if (prod1Quant != 0) {
+    if (prod8Quant != 0) {
 
         let xhttp = new XMLHttpRequest();
 
@@ -195,6 +201,7 @@ function addToCart8() {
         xhttp.send();
     }
     else {
+        document.getElementById("cartButton8").innerText = "Item Out of Stock";
         console.log("No item in inventory.")
     }
 
@@ -264,7 +271,6 @@ function productsDOM(productsList) {
     document.getElementById("name1").innerText = productsList[0].product_name;
     document.getElementById("cat1").innerText = "Category: " + productsList[0].category.categoryName;
     document.getElementById("quant1").innerText = "Quantity: " + productsList[0].quantity;
-    const prod1Quant = productsList[0].quantity;
     document.getElementById("price1").innerText = "Price: " + productsList[0].price;
     document.getElementById("desc1").innerText = "Description: " + productsList[0].product_desc;
     document.getElementById("rev1").innerText = "Review: " + productsList[0].product_review;
