@@ -10,6 +10,7 @@ window.onload = function () {
     document.getElementById("ordersButton").addEventListener('click', orders)
     document.getElementById("logoutButton").addEventListener('click', logout)
     document.getElementById("Checkout").addEventListener('click', checkout)
+    document.getElementById("emptycart").addEventListener('click', emptycart)
 }
 
 
@@ -50,6 +51,22 @@ function logout(){
 
 function checkout(){
     window.location.href = "http://localhost:9002/html/checkout.html"
+}
+
+function emptycart(){
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            let productsList = xhttp.responseText;
+            console.log(productsList);
+            window.location.href = "http://localhost:9002/html/cart.html"
+        }
+    }
+    xhttp.open('GET', 'http://localhost:9002/emptyallcart')
+    xhttp.send();
+    
 }
 
 async function listOnLoad(){
