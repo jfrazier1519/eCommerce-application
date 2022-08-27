@@ -46,14 +46,14 @@ function logout(){
 }
 
 async function listOnLoad(){
-    const responsePayload = await fetch(`http://localhost:9002/shoppingcart`);
+    const responsePayload = await fetch(`http://localhost:9002/previousorders`);
     const ourJSON = await responsePayload.json();
     console.log(ourJSON);
     ourDOMManipulationFunction(ourJSON);
 }
 
 function ourDOMManipulationFunction(ourObject){
-    for(let i=0; i<ourObject; i++){
+    for(let i=0; i<ourObject.length; i++){
         let newTR = document.createElement("tr");
         let newTH = document.createElement("th");
 
@@ -63,7 +63,7 @@ function ourDOMManipulationFunction(ourObject){
 
         //step 2: populate our creations
         newTH.setAttribute("scope", "row");
-        let myTextH = document.createTextNode(ourObject[i].order_Id);
+        let myTextH = document.createTextNode(ourObject[i].order_id);
         let myTextD1 = document.createTextNode(ourObject[i].order_date);
         let myTextD2 = document.createTextNode(ourObject[i].quantity);
         let myTextD3 = document.createTextNode(ourObject[i].total);

@@ -9,6 +9,7 @@ window.onload = function () {
     document.getElementById("profileButton").addEventListener('click', profile)
     document.getElementById("ordersButton").addEventListener('click', orders)
     document.getElementById("logoutButton").addEventListener('click', logout)
+    document.getElementById("Checkout").addEventListener('click', checkout)
 }
 
 
@@ -47,6 +48,10 @@ function logout(){
 
 }
 
+function checkout(){
+    window.location.href = "http://localhost:9002/html/checkout.html"
+}
+
 async function listOnLoad(){
     const responsePayload = await fetch(`http://localhost:9002/shoppingcart`);
     const ourJSON = await responsePayload.json();
@@ -55,8 +60,8 @@ async function listOnLoad(){
 }
 
 function ourDOMManipulationFunction(ourObject){
-    const shoppingCartProductList = ourObject[0].myProducts
-    for(let i=0; i<shoppingCartProductList; i++){
+    const shoppingCartProductList = ourObject.myProducts
+    for(let i=0; i<shoppingCartProductList.length; i++){
         let newTR = document.createElement("tr");
         let newTH = document.createElement("th");
 
