@@ -39,6 +39,21 @@ function getProducts() {
     xhttp.send();
 }
 
+function AddtoCart() {
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            let cartcondition = xhttp.responseText;
+            console.log(cartcondition);
+            productsDOM(cartcondition);
+        }
+    }
+    xhttp.open('POST', 'http://localhost:9002/addtocart')
+    xhttp.send();
+}
+
 
 function register() {
     window.location.href = "http://localhost:9002/html/new-account.html";
