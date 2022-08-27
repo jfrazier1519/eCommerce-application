@@ -66,11 +66,16 @@ public class ShoppingCartController {
 			temp.add(product);
 			Date d = new Date(System.currentTimeMillis());
 			Order newShoppingCart = new Order(d, 1, 1, "shoppingCart", myCustomer,temp );
+			newShoppingCart.setTotal(newShoppingCart.getTotal() + product.getPrice());
+			newShoppingCart.setQuantity(newShoppingCart.getQuantity() +1 );
 			orderService.insertOrder(newShoppingCart);
 			
 		}else {
-			recall.get(0).getMyProducts().add(product);
-			orderService.insertOrder(recall.get(0));
+			Order newShoppingCart = recall.get(0);
+			newShoppingCart.getMyProducts().add(product);
+			newShoppingCart.setTotal(newShoppingCart.getTotal() + product.getPrice());
+			newShoppingCart.setQuantity(newShoppingCart.getQuantity() +1 );
+			orderService.insertOrder(newShoppingCart);
 		}
 		
 		

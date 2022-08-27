@@ -48,21 +48,41 @@ function logout(){
 }
 
 async function checkoutpayment(){
-    const responsePaylod = await fetch(`http://localhost:9002/paymentverification`);
-    const isVerified = responsePaylod;
-    if(isVerified){
-        realcheckout
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            let isVerified = xhttp.responseText;
+            console.log(isVerified);
+            if(isVerified){
+                realcheckout();
+            }
+        }
     }
+    xhttp.open('GET', 'http://localhost:9002/paymentverification')
+    xhttp.send();
 
 }
 
 async function realcheckout(){
-    const responsePaylod = await fetch(`http://localhost:9002/checkout`);
-    const isVerified = responsePaylod;
-    if(isVerified){
-        window.location.href = "http://localhost:9002/html/home.html";
-    }
+    let xhttp = new XMLHttpRequest();
 
+    xhttp.onreadystatechange = function () {
+
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            let isVerified = xhttp.responseText;
+            console.log(isVerified);
+            if(isVerified){
+                window.location.href = "http://localhost:9002/html/logged-home.html";
+            }
+        }
+    }
+    xhttp.open('POST', 'http://localhost:9002/checkout')
+    xhttp.send();
+
+
+    
 }
 
 async function listOnLoad(){
@@ -73,8 +93,8 @@ async function listOnLoad(){
 }
 
 function ourDOMManipulationFunction(ourObject){
-    const shoppingCartProductList = ourObject[0].myProducts
-    for(let i=0; i<shoppingCartProductList; i++){
+    const shoppingCartProductList = ourObject.myProducts
+    for(let i=0; i<shoppingCartProductList.length; i++){
         let newTR = document.createElement("tr");
         let newTH = document.createElement("th");
 
