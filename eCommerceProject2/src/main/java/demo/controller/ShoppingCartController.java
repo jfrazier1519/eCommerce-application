@@ -65,9 +65,9 @@ public class ShoppingCartController {
 			List<Product> temp = new ArrayList<>();
 			temp.add(product);
 			Date d = new Date(System.currentTimeMillis());
-			Order newShoppingCart = new Order(d, 1, 1, "shoppingCart", myCustomer,temp );
+			Order newShoppingCart = new Order(d, 0, 0, "shoppingCart", myCustomer,temp );
 			newShoppingCart.setTotal(newShoppingCart.getTotal() + product.getPrice());
-			newShoppingCart.setQuantity(newShoppingCart.getQuantity() +1 );
+			newShoppingCart.setQuantity(newShoppingCart.getQuantity() + 1);
 			orderService.insertOrder(newShoppingCart);
 			
 		}else {
