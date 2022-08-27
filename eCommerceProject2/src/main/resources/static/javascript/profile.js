@@ -15,10 +15,10 @@ window.onload = function () {
 
 
 
-// function updateForm(theEvent) {
-//     //we want the page to access the getProfile() function again to reload itself with updated fields
-//     newUser();
-// }
+function updateForm(theEvent) {
+     //we want the page to access the getProfile() function again to reload itself with updated fields
+     newUser();
+ }
 
 
 // async function getProfile() {
