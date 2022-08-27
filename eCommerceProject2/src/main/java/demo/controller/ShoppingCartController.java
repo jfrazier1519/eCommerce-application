@@ -52,6 +52,19 @@ public class ShoppingCartController {
 		return OrderList;
 	}
 	
+	@GetMapping("/emptyallcart")
+	public boolean emptyCart(HttpSession session) {
+		Customer currentUser = (Customer) session.getAttribute("currentUser");
+		Customer myCustomer = customerService.findByCustomerId(currentUser.getCustomerId());
+		myCustomer.setUsername(currentUser.getUsername());
+		myCustomer.setPassword(currentUser.getPassword());
+		List<Order> recall = orderService.selectPreviousOrders(myCustomer, "shoppingCart");
+		Order toEmpty = recall.get(0);
+		toEmpty.getMyProducts().clear();
+		orderService.insertOrder(toEmpty);
+		return true;
+	}
+	
 	@PostMapping("/addtocart")
 	public Boolean AddToCart(HttpServletRequest req, HttpSession session) {
 		int inputId = Integer.parseInt(req.getParameter("id"));
