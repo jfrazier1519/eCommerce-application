@@ -37,15 +37,15 @@
         <main class="form-signin w-100 m-auto">
             <form method="POST" action="http://localhost:9002/login">
 
-                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+                <h1 class="h3 mb-3 fw-normal">Sign In</h1>
 
                 <div class="form-floating">
                     <input type="text" class="form-control" id="loginUsername" name="username">
-                    <label for="floatingInput">Username</label>
+                    <label class="inputText" for="floatingInput">Username</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="loginPassword" name="password">
-                    <label for="floatingPassword">Password</label>
+                    <input type="password" class="form-control " id="loginPassword" name="password">
+                    <label class="inputText" for="floatingPassword">Password</label>
                 </div>
 
                 <div class="checkbox mb-3">
@@ -53,7 +53,7 @@
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit" id="loginButton">Sign in</button>
+                <button class="btn btn-lg btn-secondary fw-bold border-white bg-white" type="submit" id="loginButton">Sign in</button>
 
                 <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
             </form>
