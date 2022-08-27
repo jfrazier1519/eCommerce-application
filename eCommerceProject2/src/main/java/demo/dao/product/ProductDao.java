@@ -9,7 +9,7 @@ import demo.model.Product;
 
 public interface ProductDao extends JpaRepository<Product, Integer>{
 	
-	public List<Product> findAll();
+	public List<Product> findByOrderByProductId();
 	
 	public List<Product> findByCategory(Category category);
 	

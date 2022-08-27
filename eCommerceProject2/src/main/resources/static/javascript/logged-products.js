@@ -160,7 +160,7 @@ async function getProducts() {
             productsDOM(productsList);
         }
     }
-    xhttp.open('POST', 'http://localhost:9002/addtocart${textField}')
+    xhttp.open('POST', 'http://localhost:9002/products/viewall')
     xhttp.send();
 }
 

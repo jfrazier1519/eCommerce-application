@@ -198,7 +198,7 @@ WHERE customer_id = 1;
 
 
 -----------------------------------PRODUCT METHODS-----------------------------
-
+SELECT * FROM orders;
 SELECT * FROM products;
 SELECT * FROM category;
 

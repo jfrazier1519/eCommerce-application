@@ -21,7 +21,7 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Override
 	public List<Product> findAllProducts() {
-		return myDao.findAll();
+		return myDao.findByOrderByProductId();
 	}
 
 	@Override

@@ -55,6 +55,7 @@ public class ShoppingCartController {
 	@PostMapping("/addtocart")
 	public Boolean AddToCart(HttpServletRequest req, HttpSession session) {
 		int inputId = Integer.parseInt(req.getParameter("id"));
+		
 		Product product = productService.findById(inputId);
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
 		Customer myCustomer = customerService.findByCustomerId(currentUser.getCustomerId());
