@@ -25,10 +25,30 @@ public class SessionController {
 	@PostMapping(value = "/login")
 	public String login(HttpSession session, HttpServletRequest req /* @RequestBody Customer incomingUser */) {
 
-		String inputUsername = req.getParameter("username");
-		String inputPassword = req.getParameter("password");
+		String inputUsername = "";
+		String inputPassword = "";
+		Customer testUser = null;
+		inputUsername = req.getParameter("username");
+		inputPassword = req.getParameter("password");
 
-		if (myServ.findByUsernameAndPassword(inputUsername, inputPassword).getFirstName() != null) {
+		if (inputUsername.equals("") || inputPassword.equals("")) {
+
+			return "redirect:/html/bad-login.html";
+		}
+
+		try {
+			testUser = myServ.findByUsernameAndPassword(inputUsername, inputPassword);
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+		} finally {
+			if (testUser == null) {
+				return "redirect:/html/bad-login.html";
+			}
+		}
+
+		if (myServ.findByUsernameAndPassword(inputUsername, inputPassword).getFirstName() != null)
+
+		{
 
 			Customer currentUser = myServ.findByUsernameAndPassword(inputUsername, inputPassword);
 
@@ -37,14 +57,14 @@ public class SessionController {
 			return "redirect:/html/logged-home.html";
 
 		} else {
-			return "redirect:/html/home.html";
+			return "redirect:/html/login.html";
 		}
 
 	}
 
 	/**
-	 * Method to retrieve the current user object in session and return it to client if exists.
-	 * Otherwise return null object.
+	 * Method to retrieve the current user object in session and return it to client
+	 * if exists. Otherwise return null object.
 	 * 
 	 * @param session
 	 * @return currentUser if one currently exists. Otherwise return null
@@ -54,7 +74,7 @@ public class SessionController {
 
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
 
-		if(currentUser == null) {
+		if (currentUser == null) {
 			return new Customer(null, null, null, null);
 		}
 		return currentUser;

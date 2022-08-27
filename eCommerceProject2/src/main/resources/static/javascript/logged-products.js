@@ -19,132 +19,184 @@ window.onload = function () {
     document.getElementById("cartButton8").addEventListener('click', addToCart8)
 }
 
+
+let prod1Quant = 0;
+let prod2Quant = 0;
+let prod3Quant = 0;
+let prod4Quant = 0;
+let prod5Quant = 0;
+let prod6Quant = 0;
+let prod7Quant = 0;
+let prod8Quant = 0;
+
+
 //Use the add to cart method here Chandler. Excuse the mess. Mistakes were made.
-function addToCart1(){
-    
-    let xhttp = new XMLHttpRequest();
+function addToCart1() {
 
-    xhttp.onreadystatechange = function () {
+    if (prod1Quant != 0) {
 
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            let productsList = xhttp.responseText;
-            console.log(productsList);
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                let productsList = xhttp.responseText;
+                console.log(productsList);
+            }
         }
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=1')
+        xhttp.send();
     }
-    xhttp.open('POST', 'http://localhost:9002/addtocart?id=1')
-    xhttp.send();
-
+    else {
+        console.log("No item in inventory.")
+    }
 }
 
-function addToCart2(){
-    
-    let xhttp = new XMLHttpRequest();
+function addToCart2() {
 
-    xhttp.onreadystatechange = function () {
+    if (prod1Quant != 0) {
 
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            let productsList = xhttp.responseText;
-            console.log(productsList);
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                let productsList = xhttp.responseText;
+                console.log(productsList);
+            }
         }
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=2')
+        xhttp.send();
     }
-    xhttp.open('POST', 'http://localhost:9002/addtocart?id=2')
-    xhttp.send();
-
+    else {
+        console.log("No item in inventory.")
+    }
 }
 
-function addToCart3(){
-    
-    let xhttp = new XMLHttpRequest();
+function addToCart3() {
 
-    xhttp.onreadystatechange = function () {
+    if (prod1Quant != 0) {
 
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            let productsList = xhttp.responseText;
-            console.log(productsList);
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                let productsList = xhttp.responseText;
+                console.log(productsList);
+            }
         }
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=3')
+        xhttp.send();
     }
-    xhttp.open('POST', 'http://localhost:9002/addtocart?id=3')
-    xhttp.send();
-
+    else {
+        console.log("No item in inventory.")
+    }
 }
 
-function addToCart4(){
-    
-    let xhttp = new XMLHttpRequest();
+function addToCart4() {
 
-    xhttp.onreadystatechange = function () {
+    if (prod1Quant != 0) {
 
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            let productsList = xhttp.responseText;
-            console.log(productsList);
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                let productsList = xhttp.responseText;
+                console.log(productsList);
+            }
         }
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=4')
+        xhttp.send();
     }
-    xhttp.open('POST', 'http://localhost:9002/addtocart?id=4')
-    xhttp.send();
-
+    else {
+        console.log("No item in inventory.")
+    }
 }
 
-function addToCart5(){
-    
-    let xhttp = new XMLHttpRequest();
+function addToCart5() {
 
-    xhttp.onreadystatechange = function () {
+    if (prod1Quant != 0) {
 
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            let productsList = xhttp.responseText;
-            console.log(productsList);
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                let productsList = xhttp.responseText;
+                console.log(productsList);
+            }
         }
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=5')
+        xhttp.send();
     }
-    xhttp.open('POST', 'http://localhost:9002/addtocart?id=5')
-    xhttp.send();
-
+    else {
+        console.log("No item in inventory.")
+    }
 }
 
-function addToCart6(){
-    
-    let xhttp = new XMLHttpRequest();
+function addToCart6() {
 
-    xhttp.onreadystatechange = function () {
+    if (prod1Quant != 0) {
 
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            let productsList = xhttp.responseText;
-            console.log(productsList);
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                let productsList = xhttp.responseText;
+                console.log(productsList);
+            }
         }
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=6')
+        xhttp.send();
     }
-    xhttp.open('POST', 'http://localhost:9002/addtocart?id=6')
-    xhttp.send();
-
+    else {
+        console.log("No item in inventory.")
+    }
 }
 
-function addToCart7(){
-    
-    let xhttp = new XMLHttpRequest();
+function addToCart7() {
 
-    xhttp.onreadystatechange = function () {
+    if (prod1Quant != 0) {
 
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            let productsList = xhttp.responseText;
-            console.log(productsList);
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                let productsList = xhttp.responseText;
+                console.log(productsList);
+            }
         }
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=7')
+        xhttp.send();
     }
-    xhttp.open('POST', 'http://localhost:9002/addtocart?id=7')
-    xhttp.send();
-
+    else {
+        console.log("No item in inventory.")
+    }
 }
 
-function addToCart8(){
-    
-    let xhttp = new XMLHttpRequest();
+function addToCart8() {
 
-    xhttp.onreadystatechange = function () {
+    if (prod1Quant != 0) {
 
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            let productsList = xhttp.responseText;
-            console.log(productsList);
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                let productsList = xhttp.responseText;
+                console.log(productsList);
+            }
         }
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=8')
+        xhttp.send();
     }
-    xhttp.open('POST', 'http://localhost:9002/addtocart?id=8')
-    xhttp.send();
+    else {
+        console.log("No item in inventory.")
+    }
 
 }
 
@@ -157,7 +209,9 @@ async function getProducts() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             let productsList = JSON.parse(xhttp.responseText);
             console.log(productsList);
+            assignQuantity(productsList);
             productsDOM(productsList);
+
         }
     }
     xhttp.open('POST', 'http://localhost:9002/products/viewall')
@@ -165,38 +219,52 @@ async function getProducts() {
 }
 
 
-function home(){
+function assignQuantity(productsList) {
+
+    prod1Quant = productsList[0].quantity;
+    prod2Quant = productsList[1].quantity;
+    prod3Quant = productsList[2].quantity;
+    prod4Quant = productsList[3].quantity;
+    prod5Quant = productsList[4].quantity;
+    prod6Quant = productsList[5].quantity;
+    prod7Quant = productsList[6].quantity;
+    prod8Quant = productsList[7].quantity;
+}
+
+
+function home() {
     window.location.href = "http://localhost:9002/html/logged-home.html";
 }
 
-function profile(){
+function profile() {
     window.location.href = "http://localhost:9002/html/profile.html";
 }
 
-function orders(){
+function orders() {
     window.location.href = "http://localhost:9002/html/orders.html";
 }
 
 
-function cart(){
+function cart() {
     window.location.href = "http://localhost:9002/html/cart.html";
 }
 
-function logout(){
+function logout() {
     let xhttp = new XMLHttpRequest();
     xhttp.open('GET', `http://localhost:9002/logout`);
-   xhttp.send();
+    xhttp.send();
 
-   window.location.href = "http://localhost:9002/html/home.html";
+    window.location.href = "http://localhost:9002/html/home.html";
 
 }
 
-function productsDOM(productsList){
+function productsDOM(productsList) {
 
-    
+
     document.getElementById("name1").innerText = productsList[0].product_name;
     document.getElementById("cat1").innerText = "Category: " + productsList[0].category.categoryName;
     document.getElementById("quant1").innerText = "Quantity: " + productsList[0].quantity;
+    const prod1Quant = productsList[0].quantity;
     document.getElementById("price1").innerText = "Price: " + productsList[0].price;
     document.getElementById("desc1").innerText = "Description: " + productsList[0].product_desc;
     document.getElementById("rev1").innerText = "Review: " + productsList[0].product_review;
