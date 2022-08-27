@@ -3,10 +3,12 @@
 
 
 
+
 window.onload = function () {
 
     document.getElementById("homeButton").addEventListener('click', home)
     document.getElementById("loginButton").addEventListener('click', login)
+    document.getElementById("loginButton2").addEventListener('click', login)
     document.getElementById("registerButton").addEventListener('click', register)
 }
 
