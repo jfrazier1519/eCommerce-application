@@ -5,10 +5,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://datachan.cvqh1dktya7v.us-east-1.rds.amazonaws.com:5432/project2DB
-    username: datachan
-    password: p4ssw0rd
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:h2:file:./myTestH2Folder/myTesth2File
+    username: testname
+    password: testword
+    driver-class-name: org.h2.Driver
   sql:
    init:
       data-locations:
@@ -22,7 +22,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
       
       
       
