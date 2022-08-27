@@ -2,12 +2,14 @@
 
 window.onload = function () {
     // getOrders();
+
     listOnLoad();
     document.getElementById("homeButton").addEventListener('click', home)
     document.getElementById("cartButton").addEventListener('click', cart)
     document.getElementById("profileButton").addEventListener('click', profile)
     document.getElementById("ordersButton").addEventListener('click', orders)
     document.getElementById("logoutButton").addEventListener('click', logout)
+    document.getElementById("Checkout").addEventListener('click', checkoutpayment)
 }
 
 
@@ -45,41 +47,85 @@ function logout(){
    window.location.href = "http://localhost:9002/html/home.html";
 }
 
+async function checkoutpayment(){
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            let isVerified = xhttp.responseText;
+            console.log(isVerified);
+            if(isVerified){
+                realcheckout();
+            }
+        }
+    }
+    xhttp.open('GET', 'http://localhost:9002/paymentverification')
+    xhttp.send();
+
+}
+
+async function realcheckout(){
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            let isVerified = xhttp.responseText;
+            console.log(isVerified);
+            if(isVerified){
+                window.location.href = "http://localhost:9002/html/logged-home.html";
+            }
+        }
+    }
+    xhttp.open('POST', 'http://localhost:9002/checkout')
+    xhttp.send();
+
+
+    
+}
+
 async function listOnLoad(){
-    const responsePayload = await fetch(`http://localhost:9002/previousorders`);
+    const responsePayload = await fetch(`http://localhost:9002/shoppingcart`);
     const ourJSON = await responsePayload.json();
     console.log(ourJSON);
     ourDOMManipulationFunction(ourJSON);
 }
 
 function ourDOMManipulationFunction(ourObject){
-    for(let i=0; i<ourObject.length; i++){
+    const shoppingCartProductList = ourObject.myProducts
+    for(let i=0; i<shoppingCartProductList.length; i++){
         let newTR = document.createElement("tr");
         let newTH = document.createElement("th");
 
         let newTD1 = document.createElement("td");
         let newTD2 = document.createElement("td");
         let newTD3 = document.createElement("td");
+        let newTD4 = document.createElement("td");
 
         //step 2: populate our creations
         newTH.setAttribute("scope", "row");
-        let myTextH = document.createTextNode(ourObject[i].order_id);
-        let myTextD1 = document.createTextNode(ourObject[i].order_date);
-        let myTextD2 = document.createTextNode(ourObject[i].quantity);
-        let myTextD3 = document.createTextNode(ourObject[i].total);
+        let myTextH = document.createTextNode(shoppingCartProductList[i].productId);
+        let myTextD1 = document.createTextNode(shoppingCartProductList[i].product_name);
+        let myTextD2 = document.createTextNode(shoppingCartProductList[i].price);
+        let myTextD3 = document.createTextNode(shoppingCartProductList[i].product_desc);
+        let myTextD4 = document.createTextNode(shoppingCartProductList[i].product_review);
 
         //all appending
         newTH.appendChild(myTextH);
         newTD1.appendChild(myTextD1);
         newTD2.appendChild(myTextD2);
         newTD3.appendChild(myTextD3);
+        newTD4.appendChild(myTextD4);
 
         newTR.appendChild(newTH);
         newTR.appendChild(newTD1);
         newTR.appendChild(newTD2);
         newTR.appendChild(newTD3);
+        newTR.appendChild(newTD4);
 
-        let newSelection = document.querySelector("#previousOrdersBody");
+        let newSelection = document.querySelector("#shoppingcartBody");
         newSelection.appendChild(newTR);
     }
+
 }
