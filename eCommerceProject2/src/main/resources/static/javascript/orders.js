@@ -46,7 +46,7 @@ function logout(){
 }
 
 async function listOnLoad(){
-    const responsePaylod = await fetch(`http://localhost:9002/shoppingcart`);
+    const responsePayload = await fetch(`http://localhost:9002/shoppingcart`);
     const ourJSON = await responsePayload.json();
     console.log(ourJSON);
     ourDOMManipulationFunction(ourJSON);

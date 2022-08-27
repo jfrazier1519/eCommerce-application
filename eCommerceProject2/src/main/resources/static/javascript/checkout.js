@@ -48,8 +48,8 @@ function logout(){
 }
 
 async function checkoutpayment(){
-    const responsePaylod = await fetch(`http://localhost:9002/paymentverification`);
-    const isVerified = responsePaylod;
+    const responsePayload = await fetch(`http://localhost:9002/paymentverification`);
+    const isVerified = responsePayload;
     if(isVerified){
         realcheckout
     }
@@ -57,8 +57,8 @@ async function checkoutpayment(){
 }
 
 async function realcheckout(){
-    const responsePaylod = await fetch(`http://localhost:9002/checkout`);
-    const isVerified = responsePaylod;
+    const responsePayload = await fetch(`http://localhost:9002/checkout`);
+    const isVerified = responsePayload;
     if(isVerified){
         window.location.href = "http://localhost:9002/html/home.html";
     }

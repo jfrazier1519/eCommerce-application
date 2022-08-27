@@ -15,7 +15,10 @@ INSERT INTO products (product_id, product_name, category_category_id, quantity, 
 INSERT INTO products (product_id, product_name, category_category_id, quantity, price, product_desc, product_review) VALUES (7, 'Earrings of Spite', 3, 6, 2000000.00, 'Erects an air-shield around you in times of crisis', 'These are great! Careful to read the fine print though. Random bouts of excitement may lower the crisis threshold.');
 INSERT INTO products (product_id, product_name, category_category_id, quantity, price, product_desc, product_review) VALUES (8, 'Boots of Hermes', 4, 100.00, 100.00, 'Why fly first class when you can fly S-class?', 'Perfect example of high supply, low demand. Theres been an increased rate of death by flight lately. Youve been warned.');
 
+INSERT INTO orders (order_id, order_status, order_date, total_quantity, price_total, customer_fk) VALUES (1,'previousOrder', '2022-8-22', 1 , 100, 1);
 INSERT INTO orders (order_id, order_status, order_date, total_quantity, price_total, customer_fk) VALUES (2,'previousOrder', '2022-8-22', 1 , 100, 1);
+INSERT INTO orders (order_id, order_status, order_date, total_quantity, price_total, customer_fk) VALUES (3,'previousOrder', '2022-8-22', 1 , 100, 1);
+INSERT INTO orders (order_id, order_status, order_date, total_quantity, price_total, customer_fk) VALUES (4,'shoppingCart', '2022-8-22', 1 , 100, 1);
 
 INSERT INTO payments (payment_id, payment_type, payment_num, payment_expiration) VALUES (1, 'visa', '5000299000000000', '0721');
 
