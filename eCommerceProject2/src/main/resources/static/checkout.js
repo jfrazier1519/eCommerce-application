@@ -1,21 +1,22 @@
 
 
-
 window.onload = function () {
-    // getCart();
+    // getOrders();
+
     listOnLoad();
     document.getElementById("homeButton").addEventListener('click', home)
     document.getElementById("cartButton").addEventListener('click', cart)
     document.getElementById("profileButton").addEventListener('click', profile)
     document.getElementById("ordersButton").addEventListener('click', orders)
     document.getElementById("logoutButton").addEventListener('click', logout)
+    document.getElementById("Checkout").addEventListener('click', checkoutpayment)
 }
 
 
 
-// async function getCart() {
+// async function getOrders() {
 
-//    //Ajax logic to get shopping cart items upon load window load
+//    //Ajax logic to get orders upon load window load
 
     
 
@@ -44,11 +45,28 @@ function logout(){
    xhttp.send();
 
    window.location.href = "http://localhost:9002/html/home.html";
+}
+
+async function checkoutpayment(){
+    const responsePaylod = await fetch(`http://localhost:9002/paymentverification`);
+    const isVerified = responsePaylod;
+    if(isVerified){
+        realcheckout
+    }
+
+}
+
+async function realcheckout(){
+    const responsePaylod = await fetch(`http://localhost:9002/checkout`);
+    const isVerified = responsePaylod;
+    if(isVerified){
+        window.location.href = "http://localhost:9002/html/home.html";
+    }
 
 }
 
 async function listOnLoad(){
-    const responsePaylod = await fetch(`http://localhost:9002/shoppingcart`);
+    const responsePayload = await fetch(`http://localhost:9002/shoppingcart`);
     const ourJSON = await responsePayload.json();
     console.log(ourJSON);
     ourDOMManipulationFunction(ourJSON);
@@ -89,4 +107,5 @@ function ourDOMManipulationFunction(ourObject){
         let newSelection = document.querySelector("#shoppingcartBody");
         newSelection.appendChild(newTR);
     }
+
 }

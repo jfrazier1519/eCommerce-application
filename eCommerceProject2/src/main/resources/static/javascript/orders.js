@@ -2,7 +2,7 @@
 
 window.onload = function () {
     // getOrders();
-
+    listOnLoad();
     document.getElementById("homeButton").addEventListener('click', home)
     document.getElementById("cartButton").addEventListener('click', cart)
     document.getElementById("profileButton").addEventListener('click', profile)
@@ -43,4 +43,43 @@ function logout(){
    xhttp.send();
 
    window.location.href = "http://localhost:9002/html/home.html";
+}
+
+async function listOnLoad(){
+    const responsePaylod = await fetch(`http://localhost:9002/shoppingcart`);
+    const ourJSON = await responsePayload.json();
+    console.log(ourJSON);
+    ourDOMManipulationFunction(ourJSON);
+}
+
+function ourDOMManipulationFunction(ourObject){
+    for(let i=0; i<ourObject; i++){
+        let newTR = document.createElement("tr");
+        let newTH = document.createElement("th");
+
+        let newTD1 = document.createElement("td");
+        let newTD2 = document.createElement("td");
+        let newTD3 = document.createElement("td");
+
+        //step 2: populate our creations
+        newTH.setAttribute("scope", "row");
+        let myTextH = document.createTextNode(ourObject[i].order_Id);
+        let myTextD1 = document.createTextNode(ourObject[i].order_date);
+        let myTextD2 = document.createTextNode(ourObject[i].quantity);
+        let myTextD3 = document.createTextNode(ourObject[i].total);
+
+        //all appending
+        newTH.appendChild(myTextH);
+        newTD1.appendChild(myTextD1);
+        newTD2.appendChild(myTextD2);
+        newTD3.appendChild(myTextD3);
+
+        newTR.appendChild(newTH);
+        newTR.appendChild(newTD1);
+        newTR.appendChild(newTD2);
+        newTR.appendChild(newTD3);
+
+        let newSelection = document.querySelector("#previousOrdersBody");
+        newSelection.appendChild(newTR);
+    }
 }
