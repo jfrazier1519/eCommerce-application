@@ -2,7 +2,7 @@
 
 window.onload = function () {
     getProfile();
-    document.getElementById("updateButton").addEventListener('click', updateUser)
+    // document.getElementById("updateButton").addEventListener('click', updateUser)
 
 
     document.getElementById("homeButton").addEventListener('click', home)
@@ -98,7 +98,6 @@ async function updateUser() {
              },
              'body': JSON.stringify(myNewCustomerObject)  
          });
-        // window.location.href = "http://18.212.29.73:9002/html/profile.html";
 }
         
 
