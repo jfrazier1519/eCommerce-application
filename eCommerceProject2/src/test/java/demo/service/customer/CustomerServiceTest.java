@@ -1,16 +1,29 @@
 package demo.service.customer;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import demo.dao.customer.CustomerDao;
+import demo.model.Customer;
+
+@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class CustomerServiceTest {
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
+	@Mock
+	private CustomerDao customerDao;
+	
+	private CustomerService customerServ;
+	
+	@BeforeEach
+	void setUp() throws Exception {
+		customerServ = new CustomerServiceImpl(customerDao);
 	}
-
+	
 	@Test
 	void findByUsernameAndPasswordTest() {
 
@@ -21,11 +34,18 @@ class CustomerServiceTest {
 		 */
 
 		// Arrange
-
+		Customer initialCust = new Customer();
+		Customer expectedCust = new Customer();
+		
+		
 		// Act
-
+		
+		
+		
 		// Assert
-
+		
+		
+		
 	}
 
 	@Test

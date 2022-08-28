@@ -39,7 +39,6 @@ function getProducts() {
     xhttp.send();
 }
 
-
 function register() {
     window.location.href = "http://localhost:9002/html/new-account.html";
 }

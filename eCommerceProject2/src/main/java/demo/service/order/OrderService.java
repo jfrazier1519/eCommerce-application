@@ -9,5 +9,4 @@ public interface OrderService {
 	
 	public List<Order> selectPreviousOrders(Customer customer, String status);
 	public Order insertOrder(Order order);
-	public Order UpdateOrder(Order order);
 }

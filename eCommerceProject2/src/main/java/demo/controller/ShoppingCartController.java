@@ -52,9 +52,23 @@ public class ShoppingCartController {
 		return OrderList;
 	}
 	
+	@GetMapping("/emptyallcart")
+	public boolean emptyCart(HttpSession session) {
+		Customer currentUser = (Customer) session.getAttribute("currentUser");
+		Customer myCustomer = customerService.findByCustomerId(currentUser.getCustomerId());
+		myCustomer.setUsername(currentUser.getUsername());
+		myCustomer.setPassword(currentUser.getPassword());
+		List<Order> recall = orderService.selectPreviousOrders(myCustomer, "shoppingCart");
+		Order toEmpty = recall.get(0);
+		toEmpty.getMyProducts().clear();
+		orderService.insertOrder(toEmpty);
+		return true;
+	}
+	
 	@PostMapping("/addtocart")
 	public Boolean AddToCart(HttpServletRequest req, HttpSession session) {
 		int inputId = Integer.parseInt(req.getParameter("id"));
+		
 		Product product = productService.findById(inputId);
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
 		Customer myCustomer = customerService.findByCustomerId(currentUser.getCustomerId());
@@ -65,12 +79,17 @@ public class ShoppingCartController {
 			List<Product> temp = new ArrayList<>();
 			temp.add(product);
 			Date d = new Date(System.currentTimeMillis());
-			Order newShoppingCart = new Order(d, 1, 1, "shoppingCart", myCustomer,temp );
+			Order newShoppingCart = new Order(d, 0, 0, "shoppingCart", myCustomer,temp );
+			newShoppingCart.setTotal(newShoppingCart.getTotal() + product.getPrice());
+			newShoppingCart.setQuantity(newShoppingCart.getQuantity() + 1);
 			orderService.insertOrder(newShoppingCart);
 			
 		}else {
-			recall.get(0).getMyProducts().add(product);
-			orderService.insertOrder(recall.get(0));
+			Order newShoppingCart = recall.get(0);
+			newShoppingCart.getMyProducts().add(product);
+			newShoppingCart.setTotal(newShoppingCart.getTotal() + product.getPrice());
+			newShoppingCart.setQuantity(newShoppingCart.getQuantity() +1 );
+			orderService.insertOrder(newShoppingCart);
 		}
 		
 		
