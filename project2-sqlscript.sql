@@ -93,6 +93,7 @@ SELECT * FROM accounts;
 
 SELECT * FROM customers;
 
+
 SELECT * FROM category;
 
 SELECT * FROM products;
