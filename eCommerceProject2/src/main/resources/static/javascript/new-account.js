@@ -83,7 +83,8 @@ async function newUser() {
         });
 
    console.log(myNewCustomerObject);
-    
+
+    window.location.href = "http://18.212.29.73:9002/html/login.html";
                     
       
 }
