@@ -21,19 +21,25 @@ import demo.service.order.OrderService;
 import demo.service.product.ProductService;
 
 @RestController
-public class ShoppingCartController {
+public class OrderController {
 	
 	private OrderService orderService;
 	private CustomerService customerService;
 	private ProductService productService;
 	
 	@Autowired
-	public ShoppingCartController(OrderService orderService, CustomerService customerService, ProductService productService) {
+	public OrderController(OrderService orderService, CustomerService customerService, ProductService productService) {
 		this.orderService = orderService;
 		this.customerService = customerService;
 		this.productService = productService;
 	}
 	
+	/**
+	 * gives the current user's shopping cart
+	 * 
+	 * @param session
+	 * @return Order
+	 */
 	@GetMapping("/shoppingcart")
 	public Order sendShoppingCart(HttpSession session) {
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
@@ -43,6 +49,12 @@ public class ShoppingCartController {
 		return OrderList.get(0);
 	}
 	
+	/**
+	 * gives the current user's previous orders
+	 * 
+	 * @param session
+	 * @return List<Order>
+	 */
 	@GetMapping("/previousorders")
 	public List<Order> sendPreviousOrders(HttpSession session) {
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
@@ -52,6 +64,12 @@ public class ShoppingCartController {
 		return OrderList;
 	}
 	
+	/**
+	 * clears the product list from the current user's shopping cart
+	 * 
+	 * @param session
+	 * @return boolean
+	 */
 	@GetMapping("/emptyallcart")
 	public boolean emptyCart(HttpSession session) {
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
@@ -65,6 +83,13 @@ public class ShoppingCartController {
 		return true;
 	}
 	
+	/**
+	 * adds a product to the product list in the current user's shopping cart
+	 * 
+	 * @param req
+	 * @param session
+	 * @return boolean
+	 */
 	@PostMapping("/addtocart")
 	public Boolean AddToCart(HttpServletRequest req, HttpSession session) {
 		int inputId = Integer.parseInt(req.getParameter("id"));

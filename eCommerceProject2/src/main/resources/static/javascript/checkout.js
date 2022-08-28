@@ -9,7 +9,7 @@ window.onload = function () {
     document.getElementById("profileButton").addEventListener('click', profile)
     document.getElementById("ordersButton").addEventListener('click', orders)
     document.getElementById("logoutButton").addEventListener('click', logout)
-    document.getElementById("Checkout").addEventListener('click', checkoutpayment)
+    document.getElementById("Checkout").addEventListener('click', checkout)
 }
 
 
@@ -47,25 +47,7 @@ function logout(){
    window.location.href = "http://localhost:9002/html/home.html";
 }
 
-async function checkoutpayment(){
-    let xhttp = new XMLHttpRequest();
-
-    xhttp.onreadystatechange = function () {
-
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            let isVerified = xhttp.responseText;
-            console.log(isVerified);
-            if(isVerified){
-                realcheckout();
-            }
-        }
-    }
-    xhttp.open('GET', 'http://localhost:9002/paymentverification')
-    xhttp.send();
-
-}
-
-async function realcheckout(){
+async function checkout(){
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {

@@ -21,7 +21,11 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	/**
-	 * returns a list of orders for a specific user depending on the status of the order
+	 * gives list of orders for a specific user depending on the status of the order
+	 * 
+	 * @param Customer 
+	 * @param String
+	 * @return List<Order>
 	 */
 	@Override
 	public List<Order> selectPreviousOrders(Customer customer, String status) {
@@ -31,6 +35,9 @@ public class OrderServiceImpl implements OrderService{
 	
 	/**
 	 * inserts a order object into the database
+	 * 
+	 * @param Order
+	 * @return Order
 	 */
 	@Override
 	public Order insertOrder(Order order) {

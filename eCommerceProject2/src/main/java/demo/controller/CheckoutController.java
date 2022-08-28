@@ -35,7 +35,14 @@ public class CheckoutController {
 		this.customerService = customerService;
 	}
 	
-	
+	/**
+	 * subtracts the quantity of all products from the current shopping cart object,
+	 * changes shopping carts' status to previousOrder,
+	 * then saves all changes to the database
+	 * 
+	 * @param session
+	 * @return boolean
+	 */
 	@PostMapping("/checkout")
 	public boolean checkout(HttpSession session) {
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
@@ -58,6 +65,14 @@ public class CheckoutController {
 		
 	}
 	
+	/**
+	 * verifies the current session account's payment information matches
+	 * a payment model within a database, then return the appropriate boolean
+	 * value
+	 * 
+	 * @param session
+	 * @return boolean
+	 */
 	@GetMapping("/paymentverification")
 	public boolean checkCard( HttpSession session) {
 		Customer currentUser = (Customer) session.getAttribute("currentUser");
@@ -73,6 +88,13 @@ public class CheckoutController {
 		return false;
 	}
 	
+	
+	/**
+	 * adds a payment model to database, for testin purposes only
+	 * 
+	 * @param payment
+	 * @return payment
+	 */
 	@PostMapping("/testaddpayment")
 	public Payment addPayment(@RequestBody Payment payment) {
 		return paymentService.InsertUpdatePayment(payment);
