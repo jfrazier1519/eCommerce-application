@@ -19,29 +19,29 @@ public class OrderServiceTest {
 		orderService = new OrderServiceImpl(orderDao);
 	}
 	
-	@Test
-	void insertOrderTest() {
-		//Arrange
-		Order test1 = new Order();
-		Order test2 = new Order();
-		Order test3 = new Order();
-		Order test4 = null;
-		
-		//Act
-		orderService.insertOrder(test1);
-		orderService.insertOrder(test2);
-		orderService.insertOrder(test3);
-		orderService.insertOrder(test4);
-		
-		//Assert
-		
-		
-	}
+//	@Test
+//	void insertOrderTest() {
+//		//Arrange
+//		Order test1 = new Order();
+//		Order test2 = new Order();
+//		Order test3 = new Order();
+//		Order test4 = null;
+//		
+//		//Act
+//		orderService.insertOrder(test1);
+//		orderService.insertOrder(test2);
+//		orderService.insertOrder(test3);
+//		orderService.insertOrder(test4);
+//		
+//		//Assert
+//		
+//		
+//	}
 	
-	@Test
-	void selectPreviousOrdersTest() {
-		
-	}
+//	@Test
+//	void selectPreviousOrdersTest() {
+//		
+//	}
 	
 	
 }
