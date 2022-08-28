@@ -20,12 +20,18 @@ public class OrderServiceImpl implements OrderService{
 		this.orderDao = orderDao;
 	}
 
+	/**
+	 * returns a list of orders for a specific user depending on the status of the order
+	 */
 	@Override
 	public List<Order> selectPreviousOrders(Customer customer, String status) {
 		// TODO Auto-generated method stub
 		return orderDao.findByMyCustomerAndOrderStatus(customer, status);
 	}
-
+	
+	/**
+	 * inserts a order object into the database
+	 */
 	@Override
 	public Order insertOrder(Order order) {
 		// TODO Auto-generated method stub

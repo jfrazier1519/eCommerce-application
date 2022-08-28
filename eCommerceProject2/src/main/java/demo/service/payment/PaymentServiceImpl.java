@@ -17,13 +17,19 @@ public class PaymentServiceImpl implements PaymentService{
 	public PaymentServiceImpl(PaymentDao paymentDao) {
 		this.paymentDao = paymentDao;
 	}
-
+	
+	/**
+	 * inserts and updates a payment object
+	 */
 	@Override
 	public Payment InsertUpdatePayment(Payment payment) {
 		// TODO Auto-generated method stub
 		return paymentDao.save(payment);
 	}
-
+	
+	/**
+	 *  returns a list of all payments
+	 */
 	@Override
 	public List<Payment> selectAllPayments() {
 		// TODO Auto-generated method stub
