@@ -201,6 +201,7 @@ WHERE customer_id = 1;
 SELECT * FROM orders;
 SELECT * FROM products;
 SELECT * FROM category;
+SELECT * FROM customers;
 
 INSERT INTO products (product_id, product_name, category_category_id, quantity, price, product_desc, product_review) VALUES (1, 'MjölnirMk2', 1, 3, 50000.00, 'Mass produced hammer of mysterious origins', 'very heavy');
 INSERT INTO products (product_id, product_name, category_category_id, quantity, price, product_desc, product_review) VALUES (2, 'Mesmeric Orb', 2, 6, 2000000.00, 'Cant sleep? Trapped by marriage? Robbing a bank? Buy the next best sleeping aid today!', 'Highly recommend you cover with a cloth for storage. Keep forgetting to avert my eyes when I walk by.');

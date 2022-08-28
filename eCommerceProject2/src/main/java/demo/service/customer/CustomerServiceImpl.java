@@ -57,7 +57,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 * in db.
 	 */
 	@Override
-	public String updateProfilePage(Customer updatedCustomer) {
+	public Customer updateProfilePage(Customer updatedCustomer) {
 		Customer currentCustomer = myDao.findByCustomerId(updatedCustomer.getCustomerId());
 		
 		//retrieve username, password, credit_card, credit_card_type, and card_expirary_date
@@ -75,9 +75,9 @@ public class CustomerServiceImpl implements CustomerService {
 		updatedCustomer.setCardExpiraryDate(customerCardExpiraryDate);
 		
 		
-		myDao.save(updatedCustomer);
+		Customer addedCustomer = myDao.save(updatedCustomer);
 		
-		return "success";
+		return addedCustomer;
 	}
 
 
