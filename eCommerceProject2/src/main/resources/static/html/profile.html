@@ -44,12 +44,47 @@
 
 		<main class="px-3">
 			<h1>Welcome to your Profile</h1>
-			<h2><nav class="nav nav-pills nav-justified">
-				<a class="nav-link active" aria-current="page" href="#">Change your name</a>
-				<a class="nav-link" href="#">Change your address</a>
-				<a class="nav-link" href="#">Payment information</a>
-				<a class="nav-link" href="#">View past orders</a>
-			  </nav></h2>>
+			<h2> <form>
+                <h1 class="h3 mb-3 fw-normal">Edit your info below</h1>
+				
+                <div class="form-floating">
+                    <input type="text" class="form-control"  placeholder="John">
+                    <label id="firstName" class="inputText myText"for="floatingInput">FirstName</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control"  placeholder="Wood">
+                    <label id="lastName" class="inputText myText"  for="floatingInput">LastName</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control"  placeholder="123 street">
+                    <label id="address" class="inputText myText" for="floatingInput">Address</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control"  placeholder="City">
+                    <label id="city" class="inputText myText" for="floatingInput">City</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control"  placeholder="zip">
+                    <label id="postalCode" class="inputText myText" for="floatingInput">PostalCode</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control"  placeholder="USA">
+                    <label id="country" class="inputText myText" for="floatingInput">Country</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control"  placeholder="5554325555">
+                    <label id="phoneNumber" class="inputText myText" for="floatingInput">PhoneNumber</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control"  placeholder="myemail@LES.com">
+                    <label id="email" class="inputText myText" for="floatingInput">Email</label>
+                </div>
+                <div class="checkbox mb-3">
+                    
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit" id="updateButton">Update</button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+            </form>
 			
 			
 		</main>
