@@ -63,6 +63,16 @@ public class Product {
 		this.product_desc = product_desc;
 		this.product_review = product_review;
 	}
+	
+	public Product(String product_name, int quantity, int price, String product_desc,
+			String product_review) {
+		super();
+		this.product_name = product_name;
+		this.quantity = quantity;
+		this.price = price;
+		this.product_desc = product_desc;
+		this.product_review = product_review;
+	}
 
 	@Override
 	public String toString() {
