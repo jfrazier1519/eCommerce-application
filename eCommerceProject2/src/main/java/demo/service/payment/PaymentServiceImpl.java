@@ -20,6 +20,9 @@ public class PaymentServiceImpl implements PaymentService{
 	
 	/**
 	 * inserts and updates a payment object
+	 * 
+	 * @param Payment
+	 * @return Payment
 	 */
 	@Override
 	public Payment InsertUpdatePayment(Payment payment) {
@@ -29,6 +32,8 @@ public class PaymentServiceImpl implements PaymentService{
 	
 	/**
 	 *  returns a list of all payments
+	 *  
+	 *  @return List<Payment>
 	 */
 	@Override
 	public List<Payment> selectAllPayments() {
