@@ -59,54 +59,54 @@ class ProductServiceTest {
 //
 //	}
 
-	@Test
-	void findByCategoryTest() {
-
-		/*
-		 * I am trying to pass over business logic from dao to controller. Test that it
-		 * is passed correctly from one layer to another.
-		 * 
-		 */
-
-		// Arrange
-
-		// Act
-
-		// Assert
-
-	}
-
-	@Test
-	void UpdateListOfProductsTest() {
-
-		/*
-		 * I am trying to pass over business logic from dao to controller. Test that it
-		 * is passed correctly from one layer to another.
-		 * 
-		 */
-
-		// Arrange
-
-		// Act
-
-		// Assert
-
-	}
-
-	@Test
-	void findByIdTest() {
-
-		/*
-		 * I am trying to pass over business logic from dao to controller. Test that it
-		 * is passed correctly from one layer to another.
-		 * 
-		 */
-
-		// Arrange
-
-		// Act
-
-		// Assert
-
-	}
+//	@Test
+//	void findByCategoryTest() {
+//
+//		/*
+//		 * I am trying to pass over business logic from dao to controller. Test that it
+//		 * is passed correctly from one layer to another.
+//		 * 
+//		 */
+//
+//		// Arrange
+//
+//		// Act
+//
+//		// Assert
+//
+//	}
+//
+//	@Test
+//	void UpdateListOfProductsTest() {
+//
+//		/*
+//		 * I am trying to pass over business logic from dao to controller. Test that it
+//		 * is passed correctly from one layer to another.
+//		 * 
+//		 */
+//
+//		// Arrange
+//
+//		// Act
+//
+//		// Assert
+//
+//	}
+//
+//	@Test
+//	void findByIdTest() {
+//
+//		/*
+//		 * I am trying to pass over business logic from dao to controller. Test that it
+//		 * is passed correctly from one layer to another.
+//		 * 
+//		 */
+//
+//		// Arrange
+//
+//		// Act
+//
+//		// Assert
+//
+//	}
 }
