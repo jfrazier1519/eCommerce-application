@@ -23,28 +23,28 @@ window.onload = function () {
 // }
 
 function home(){
-    window.location.href = "http://localhost:9002/html/logged-home.html";
+    window.location.href = "http://18.212.29.73:9002/html/logged-home.html";
 }
 
 function profile(){
-    window.location.href = "http://localhost:9002/html/profile.html";
+    window.location.href = "http://18.212.29.73:9002/html/profile.html";
 }
 
 function orders(){
-    window.location.href = "http://localhost:9002/html/orders.html";
+    window.location.href = "http://18.212.29.73:9002/html/orders.html";
 }
 
 
 function cart(){
-    window.location.href = "http://localhost:9002/html/cart.html";
+    window.location.href = "http://18.212.29.73:9002/html/cart.html";
 }
 
 function logout(){
     let xhttp = new XMLHttpRequest();
-    xhttp.open('GET', `http://localhost:9002/logout`);
+    xhttp.open('GET', `http://18.212.29.73:9002/logout`);
    xhttp.send();
 
-   window.location.href = "http://localhost:9002/html/home.html";
+   window.location.href = "http://18.212.29.73:9002/html/home.html";
 }
 
 async function checkout(){
@@ -56,11 +56,11 @@ async function checkout(){
             let isVerified = xhttp.responseText;
             console.log(isVerified);
             if(isVerified){
-                window.location.href = "http://localhost:9002/html/logged-home.html";
+                window.location.href = "http://18.212.29.73:9002/html/logged-home.html";
             }
         }
     }
-    xhttp.open('POST', 'http://localhost:9002/checkout')
+    xhttp.open('POST', 'http://18.212.29.73:9002/checkout')
     xhttp.send();
 
 
@@ -68,7 +68,7 @@ async function checkout(){
 }
 
 async function listOnLoad(){
-    const responsePayload = await fetch(`http://localhost:9002/shoppingcart`);
+    const responsePayload = await fetch(`http://18.212.29.73:9002/shoppingcart`);
     const ourJSON = await responsePayload.json();
     console.log(ourJSON);
     ourDOMManipulationFunction(ourJSON);

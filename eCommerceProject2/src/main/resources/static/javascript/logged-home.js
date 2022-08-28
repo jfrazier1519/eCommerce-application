@@ -13,32 +13,32 @@ window.onload = function () {
 }
 
 function home(){
-    window.location.href = "http://localhost:9002/html/logged-home.html";
+    window.location.href = "http://18.212.29.73:9002/html/logged-home.html";
 }
 
 function profile(){
-    window.location.href = "http://localhost:9002/html/profile.html";
+    window.location.href = "http://18.212.29.73:9002/html/profile.html";
 }
 
 function orders(){
-    window.location.href = "http://localhost:9002/html/orders.html";
+    window.location.href = "http://18.212.29.73:9002/html/orders.html";
 }
 
 
 function cart(){
-    window.location.href = "http://localhost:9002/html/cart.html";
+    window.location.href = "http://18.212.29.73:9002/html/cart.html";
 }
 
 function products(){
-    window.location.href = "http://localhost:9002/html/logged-products.html";
+    window.location.href = "http://18.212.29.73:9002/html/logged-products.html";
 }
 
 function logout(){
     let xhttp = new XMLHttpRequest();
-    xhttp.open('GET', `http://localhost:9002/logout`);
+    xhttp.open('GET', `http://18.212.29.73:9002/logout`);
    xhttp.send();
 
-   window.location.href = "http://localhost:9002/html/home.html";
+   window.location.href = "http://18.212.29.73:9002/html/home.html";
 }
 
 
