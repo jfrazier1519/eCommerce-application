@@ -68,8 +68,6 @@ async function updateUser() {
          
         
         
-        
-        
          console.log("Our input firstName is: ", inputFirstName);
          console.log("Our input lastName is: ", inputLastName);
          console.log("Our input address is: ", inputAddress);
