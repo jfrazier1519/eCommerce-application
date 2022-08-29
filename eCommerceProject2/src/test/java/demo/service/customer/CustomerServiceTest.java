@@ -83,19 +83,36 @@ class CustomerServiceTest {
 //		// Arrange
 //		Customer incomingCust = new Customer(1, null, null, "josh", "frazier", "123 wallaby way", "city", 12345, "usa", 24012, "myemail@gmail.com", null, null, null);
 //		Customer expectedCust = new Customer(1, "username", "password", "josh", "frazier", "123 wallaby way", "city", 12345, "usa", 24012, "myemail@gmail.com", "5000299000000000", "visa", "0721");
-//		when(customerDao.save(incomingCust)).thenReturn(incomingCust);
+//		doNothing().when(customerDao.save(incomingCust));
 //		
 //		// Act
 //		
-//		Customer actualCust = customerServ.updateProfilePage(incomingCust);
-//		actualCust.setUsername("username");
-//		actualCust.setPassword("password");
-//		actualCust.setCreditCard("5000299000000000");
-//		actualCust.setCreditCardType("visa");
-//		actualCust.setCardExpiraryDate("0721");
+//		customerServ.updateProfilePage(incomingCust);
+//
 //		
 //		// Assert
 //		verify(customerDao, times(1)).save(incomingCust);
+//
+//	}
+	
+	
+//	@Test
+//	void createNewCustomerTest() {
+//
+//		// Arrange
+//		int custId = 1;
+//		Customer intialCust = new Customer(1, "username", "password", "josh", "frazier", "123 wallaby way", "city", 12345, "usa", 24012, "myemail@gmail.com", "5000299000000000", "visa", "0721");
+//		Customer expectedCust = new Customer(1, null, null, "josh", "frazier", "123 wallaby way", "city", 12345, "usa", 24012, "myemail@gmail.com", null, null, null);
+//		when(customerDao.findByCustomerId(custId)).thenReturn(intialCust);
+//		
+//			
+//		// Act
+//		
+//		Customer actualCust = customerServ.findByCustomerId(custId);
+//		
+//		
+//		// Assert
+//		verify(customerDao, times(1)).findByCustomerId(custId);
 //		
 ////		actualCust.setFirstName("Bob");
 //		
