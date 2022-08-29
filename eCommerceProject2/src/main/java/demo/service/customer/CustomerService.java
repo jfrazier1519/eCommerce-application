@@ -12,7 +12,7 @@ public interface CustomerService {
 	public Customer findByUsernameAndPassword(String username, String password);
 
 
-	public Customer updateProfilePage(Customer customer);
+	public void updateProfilePage(Customer customer);
 	
 	//create new account
 	public void createNewCustomer(Customer customer);
