@@ -24,33 +24,39 @@ window.onload = function () {
 // }
 
 function home(){
-    window.location.href = "http://18.212.29.73:9002/html/logged-home.html";
+    window.location.href = "http://localhost:9002/html/logged-home.html";
+    // window.location.href = "http://18.212.29.73:9002/html/logged-home.html";
 }
 
 function profile(){
-    window.location.href = "http://18.212.29.73:9002/html/profile.html";
+    window.location.href = "http://localhost:9002/html/profile.html";
+    // window.location.href = "http://18.212.29.73:9002/html/profile.html";
 }
 
 function orders(){
-    window.location.href = "http://18.212.29.73:9002/html/orders.html";
+    window.location.href = "http://localhost:9002/html/orders.html";
+    // window.location.href = "http://18.212.29.73:9002/html/orders.html";
 }
 
 
 function cart(){
-    window.location.href = "http://18.212.29.73:9002/html/cart.html";
+    window.location.href = "http://localhost:9002/html/cart.html";
+    // window.location.href = "http://18.212.29.73:9002/html/cart.html";
 }
 
 function logout(){
     let xhttp = new XMLHttpRequest();
-    xhttp.open('GET', `http://18.212.29.73:9002/logout`);
+    xhttp.open('GET', `http://localhost:9002/logout`);
+    // xhttp.open('GET', `http://18.212.29.73:9002/logout`);
    xhttp.send();
 
-   window.location.href = "http://18.212.29.73:9002/html/home.html";
-
+   window.location.href = "http://localhost:9002/html/home.html";
+//    window.location.href = "http://18.212.29.73:9002/html/home.html";
 }
 
 function checkout(){
-    window.location.href = "http://18.212.29.73:9002/html/checkout.html"
+    // window.location.href = "http://18.212.29.73:9002/html/checkout.html"
+    window.location.href = "http://localhost:9002/html/checkout.html"
 }
 
 function emptycart(){
@@ -61,16 +67,19 @@ function emptycart(){
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             let productsList = xhttp.responseText;
             console.log(productsList);
-            window.location.href = "http://18.212.29.73:9002/html/cart.html"
+            // window.location.href = "http://18.212.29.73:9002/html/cart.html"
+            window.location.href = "http://localhost:9002/html/checkout.html"
         }
     }
-    xhttp.open('GET', 'http://18.212.29.73:9002/emptyallcart')
+    xhttp.open('GET', 'http://localhost:9002/emptyallcart')
+    // xhttp.open('GET', 'http://18.212.29.73:9002/emptyallcart')
     xhttp.send();
     
 }
 
 async function listOnLoad(){
-    const responsePayload = await fetch(`http://18.212.29.73:9002/shoppingcart`);
+    // const responsePayload = await fetch(`http://18.212.29.73:9002/shoppingcart`);
+    const responsePayload = await fetch(`http://localhost:9002/shoppingcart`);
     const ourJSON = await responsePayload.json();
     console.log(ourJSON);
     ourDOMManipulationFunction(ourJSON);

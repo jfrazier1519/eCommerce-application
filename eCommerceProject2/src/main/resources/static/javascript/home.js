@@ -13,17 +13,21 @@ window.onload = function () {
 
 
 function login(){
-    window.location.href = "http://18.212.29.73:9002/html/login.html";
+    window.location.href = "http://localhost:9002/html/login.html";
+    // window.location.href = "http://18.212.29.73:9002/html/login.html";
 }
 
 function home(){
-    window.location.href = "http://18.212.29.73:9002/html/home.html";
+    window.location.href = "http://localhost:9002/html/home.html";
+    // window.location.href = "http://18.212.29.73:9002/html/home.html";
 }
 
 function register(){
-    window.location.href = "http://18.212.29.73:9002/html/new-account.html";
+    window.location.href = "http://localhost:9002/html/new-account.html";
+    // window.location.href = "http://18.212.29.73:9002/html/new-account.html";
 }
 
 function products(){
-    window.location.href = "http://18.212.29.73:9002/html/products.html";
+    window.location.href = "http://localhost:9002/html/products.html";
+    // window.location.href = "http://18.212.29.73:9002/html/products.html";
 }

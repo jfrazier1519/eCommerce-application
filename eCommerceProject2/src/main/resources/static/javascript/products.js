@@ -35,16 +35,19 @@ function getProducts() {
             productsDOM(productsList);
         }
     }
-    xhttp.open('POST', 'http://18.212.29.73:9002/products/viewall')
+    // xhttp.open('POST', 'http://18.212.29.73:9002/products/viewall')
+    xhttp.open('POST', 'http://localhost:9002/products/viewall')
     xhttp.send();
 }
 
 function register() {
-    window.location.href = "http://18.212.29.73:9002/html/new-account.html";
+    // window.location.href = "http://18.212.29.73:9002/html/new-account.html";
+    window.location.href = "http://localhost:9002/html/new-account.html";
 }
 
 function home() {
-    window.location.href = "http://18.212.29.73:9002/html/home.html";
+    // window.location.href = "http://18.212.29.73:9002/html/home.html";
+    window.location.href = "http://localhost:9002/html/home.html";
 }
 
 // function cart() {
@@ -53,7 +56,8 @@ function home() {
 
 //Since we're not logged in, clicking 'add to cart' will route you to login page
 function login() {
-    window.location.href = "http://18.212.29.73:9002/html/login.html";
+    // window.location.href = "http://18.212.29.73:9002/html/login.html";
+    window.location.href = "http://localhost:9002/html/login.html";
 }
 
 function productsDOM(productsList){
