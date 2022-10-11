@@ -43,7 +43,8 @@ function addToCart1() {
                 console.log(productsList);
             }
         }
-        xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=1')
+        // xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=1')
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=1')
         xhttp.send();
     }
     else {
@@ -65,7 +66,8 @@ function addToCart2() {
                 console.log(productsList);
             }
         }
-        xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=2')
+        // xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=2')
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=2')
         xhttp.send();
     }
     else {
@@ -87,7 +89,8 @@ function addToCart3() {
                 console.log(productsList);
             }
         }
-        xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=3')
+        // xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=3')
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=3')
         xhttp.send();
     }
     else {
@@ -109,7 +112,8 @@ function addToCart4() {
                 console.log(productsList);
             }
         }
-        xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=4')
+        // xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=4')
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=4')
         xhttp.send();
     }
     else {
@@ -131,7 +135,8 @@ function addToCart5() {
                 console.log(productsList);
             }
         }
-        xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=5')
+        // xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=5')
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=5')
         xhttp.send();
     }
     else {
@@ -153,7 +158,8 @@ function addToCart6() {
                 console.log(productsList);
             }
         }
-        xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=6')
+        // xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=6')
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=6')
         xhttp.send();
     }
     else {
@@ -175,7 +181,8 @@ function addToCart7() {
                 console.log(productsList);
             }
         }
-        xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=7')
+        // xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=7')
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=7')
         xhttp.send();
     }
     else {
@@ -197,7 +204,8 @@ function addToCart8() {
                 console.log(productsList);
             }
         }
-        xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=8')
+        // xhttp.open('POST', 'http://18.212.29.73:9002/addtocart?id=8')
+        xhttp.open('POST', 'http://localhost:9002/addtocart?id=8')
         xhttp.send();
     }
     else {
@@ -221,7 +229,8 @@ async function getProducts() {
 
         }
     }
-    xhttp.open('POST', 'http://18.212.29.73:9002/products/viewall')
+    // xhttp.open('POST', 'http://18.212.29.73:9002/products/viewall')
+    xhttp.open('POST', 'http://localhost:9002/products/viewall')
     xhttp.send();
 }
 
@@ -239,30 +248,35 @@ function assignQuantity(productsList) {
 }
 
 
-function home() {
-    window.location.href = "http://18.212.29.73:9002/html/logged-home.html";
+function home(){
+    window.location.href = "http://localhost:9002/html/logged-home.html";
+    // window.location.href = "http://18.212.29.73:9002/html/logged-home.html";
 }
 
-function profile() {
-    window.location.href = "http://18.212.29.73:9002/html/profile.html";
+function profile(){
+    window.location.href = "http://localhost:9002/html/profile.html";
+    // window.location.href = "http://18.212.29.73:9002/html/profile.html";
 }
 
-function orders() {
-    window.location.href = "http://18.212.29.73:9002/html/orders.html";
+function orders(){
+    window.location.href = "http://localhost:9002/html/orders.html";
+    // window.location.href = "http://18.212.29.73:9002/html/orders.html";
 }
 
 
-function cart() {
-    window.location.href = "http://18.212.29.73:9002/html/cart.html";
+function cart(){
+    window.location.href = "http://localhost:9002/html/cart.html";
+    // window.location.href = "http://18.212.29.73:9002/html/cart.html";
 }
 
-function logout() {
+function logout(){
     let xhttp = new XMLHttpRequest();
-    xhttp.open('GET', `http://18.212.29.73:9002/logout`);
-    xhttp.send();
+    xhttp.open('GET', `http://localhost:9002/logout`);
+    // xhttp.open('GET', `http://18.212.29.73:9002/logout`);
+   xhttp.send();
 
-    window.location.href = "http://18.212.29.73:9002/html/home.html";
-
+   window.location.href = "http://localhost:9002/html/home.html";
+//    window.location.href = "http://18.212.29.73:9002/html/home.html";
 }
 
 function productsDOM(productsList) {
